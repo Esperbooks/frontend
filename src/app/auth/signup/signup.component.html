@@ -1,0 +1,130 @@
+<div>
+    <form [formGroup]="loginForm" class="flex flex-col gap-5" autocomplete="off">
+        <div class="form-control">
+            <div class="relative w-full">
+                <input type="text" formControlName="firstName"
+                    class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="firstName" placeholder=" " />
+                <label for="firstName"
+                    class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">
+                    First Name
+                </label>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <div class="relative w-full">
+                <input type="text" formControlName="lastName"
+                    class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="lastName" placeholder=" " />
+                <label for="lastName"
+                    class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">
+                    Last Name
+                </label>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div class="form-control">
+                <div class="relative w-full">
+                    <input type="date" formControlName="dateOfBirth"
+                        class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                        id="dateOfBirth" placeholder=" " />
+                    <label for="dateOfBirth"
+                        class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">
+                        Date of Birth
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <div class="relative w-full">
+                    <input type="text" formControlName="gender"
+                        class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                        id="gender" placeholder=" " />
+                    <label for="gender"
+                        class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">
+                        Gender
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <div class="relative w-full">
+                <input type="tel" formControlName="phoneNumber"
+                    class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="phoneNumber" placeholder=" " />
+                <label for="phoneNumber"
+                    class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">Phone
+                    Number</label>
+                <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1_583)">
+                            <path
+                                d="M8.79503 5.20019L5.97586 1.94602C5.65086 1.57102 5.05503 1.57269 4.67753 1.95102L2.3592 4.27352C1.6692 4.96435 1.4717 5.99019 1.87086 6.81269C4.25555 11.7502 8.23757 15.7378 13.1717 18.1294C13.9934 18.5285 15.0184 18.331 15.7084 17.6402L18.0484 15.296C18.4275 14.9169 18.4284 14.3177 18.05 13.9927L14.7834 11.1885C14.4417 10.8952 13.9109 10.9335 13.5684 11.2769L12.4317 12.4152C12.3735 12.4762 12.2969 12.5164 12.2137 12.5296C12.1304 12.5429 12.0451 12.5284 11.9709 12.4885C10.1129 11.4186 8.57169 9.87538 7.5042 8.01602C7.46422 7.94165 7.44974 7.85621 7.46299 7.77282C7.47624 7.68942 7.51647 7.61268 7.57753 7.55435L8.71086 6.42019C9.0542 6.07519 9.0917 5.54185 8.79503 5.19935V5.20019Z"
+                                stroke="#20367F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_583">
+                                <rect width="20" height="20" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+
+                </button>
+            </div>
+        </div>
+
+        <div class="form-control">
+            <div class="relative w-full">
+
+                <input type="email" formControlName="email"
+                    class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="email" placeholder=" " />
+                <label for="email"
+                    class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">Email
+                    address</label>
+
+                <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.8334 0.333984H3.16675C2.50371 0.333984 1.86782 0.597377 1.39898 1.06622C0.93014 1.53506 0.666748 2.17094 0.666748 2.83398V11.1673C0.666748 11.8304 0.93014 12.4662 1.39898 12.9351C1.86782 13.4039 2.50371 13.6673 3.16675 13.6673H14.8334C15.4965 13.6673 16.1323 13.4039 16.6012 12.9351C17.07 12.4662 17.3334 11.8304 17.3334 11.1673V2.83398C17.3334 2.17094 17.07 1.53506 16.6012 1.06622C16.1323 0.597377 15.4965 0.333984 14.8334 0.333984ZM14.2751 2.00065L9.00008 5.95898L3.72508 2.00065H14.2751ZM14.8334 12.0007H3.16675C2.94573 12.0007 2.73377 11.9129 2.57749 11.7566C2.42121 11.6003 2.33341 11.3883 2.33341 11.1673V3.04232L8.50008 7.66732C8.64433 7.7755 8.81977 7.83398 9.00008 7.83398C9.18039 7.83398 9.35583 7.7755 9.50008 7.66732L15.6667 3.04232V11.1673C15.6667 11.3883 15.5789 11.6003 15.4227 11.7566C15.2664 11.9129 15.0544 12.0007 14.8334 12.0007Z"
+                            fill="#20367F" />
+                    </svg>
+
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div class="form-control">
+                <div class="relative w-full">
+                    <input type="password" formControlName="password"
+                        class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                        id="password" placeholder=" " />
+                    <label for="password"
+                        class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">Password</label>
+
+                </div>
+            </div>
+            <div class="form-control">
+                <div class="relative w-full">
+                    <input type="password" formControlName="password"
+                        class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                        id="password" placeholder=" " />
+                    <label for="password"
+                        class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">Confirm
+                        Password</label>
+
+                </div>
+            </div>
+        </div>
+
+        <button [routerLink]="['/']" type="submit"
+            class="w-full bg-eb-primary text-white py-3 rounded-lg mt-5 font-bold">
+            Sign Up
+        </button>
+    </form>
+</div>

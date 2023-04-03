@@ -1,1 +1,26 @@
-<eb-auth-navbar></eb-auth-navbar>
+<div class="h-full">
+    <eb-auth-navbar></eb-auth-navbar>
+    <div class="auth-modal flex h-full ">
+        <div class="eb-card p-5 py-10 items-center m-auto w-[500px]">
+            <div class="tab flex gap-5 text-2xl font-semibold text-eb-primary-3 justify-center">
+                <div>
+                    <button [ngClass]="authType === 'signup' ? 'text-eb-primary border-b-[3px] border-b-eb-danger' : ''"
+                        [routerLink]="['/signup']">Sign
+                        Up</button>
+                </div>
+                <div>
+                    <button [ngClass]="authType === 'login' ? 'text-eb-primary border-b-[3px] border-b-eb-danger' : ''"
+                        [routerLink]="['/login']">Login</button>
+                </div>
+            </div>
+            <div class="tab-content mt-5 px-5">
+                <div [ngClass]="authType === 'signup' ? 'block' : 'hidden'">
+                    <eb-signup></eb-signup>
+                </div>
+                <div [ngClass]="authType === 'login' ? 'block' : 'hidden'">
+                    <eb-login></eb-login>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

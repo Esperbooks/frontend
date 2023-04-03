@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <!-- Project Selection -->
+    <div>
+        <div class="form-field">
+            <!-- <label for="project" class="block mb-2 text-sm font-medium text-gray-900 ">Select Project</label> -->
+            <select id="project"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block w-2/6 p-2.5">
+                <option selected disabled>Select Project</option>
+                <option *ngFor="let project of projectOptions" [value]="project">{{project}}</option>
+            </select>
+        </div>
+
+        <div class="flex items-center gap-3 mt-5">
+            <div class="">
+                <p>Filter period by: </p>
+            </div>
+            <div class="form-field ">
+                <select id="project"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                    <option value="Week">Week</option>
+                    <option value="Month">Month</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <input type="date" class="h-12 rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900" name="" id="">
+            </div>
+            <p>To</p>
+            <div class="form-field">
+                <input type="date" class="h-12 rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900" name="" id="">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Filtered Result - Table -->
+    <ngx-datatable #table class="material" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
+        rowHeight="auto" [limit]="10" [rows]="summaryRows">
+    </ngx-datatable>
+</div>

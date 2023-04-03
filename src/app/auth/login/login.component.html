@@ -1,0 +1,59 @@
+<div>
+    <div class="mt-10 text-center">
+        <h1 class="text-[#757575]">Welcome back!</h1>
+    </div>
+
+    <form [formGroup]="loginForm" class="" autocomplete="off">
+        <div class="form-control mt-10">
+            <div class="relative w-full">
+
+                <input type="email" formControlName="email"
+                    class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="email" placeholder=" " />
+                <label for="email"
+                    class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">Email
+                    address</label>
+
+                <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.8334 0.333984H3.16675C2.50371 0.333984 1.86782 0.597377 1.39898 1.06622C0.93014 1.53506 0.666748 2.17094 0.666748 2.83398V11.1673C0.666748 11.8304 0.93014 12.4662 1.39898 12.9351C1.86782 13.4039 2.50371 13.6673 3.16675 13.6673H14.8334C15.4965 13.6673 16.1323 13.4039 16.6012 12.9351C17.07 12.4662 17.3334 11.8304 17.3334 11.1673V2.83398C17.3334 2.17094 17.07 1.53506 16.6012 1.06622C16.1323 0.597377 15.4965 0.333984 14.8334 0.333984ZM14.2751 2.00065L9.00008 5.95898L3.72508 2.00065H14.2751ZM14.8334 12.0007H3.16675C2.94573 12.0007 2.73377 11.9129 2.57749 11.7566C2.42121 11.6003 2.33341 11.3883 2.33341 11.1673V3.04232L8.50008 7.66732C8.64433 7.7755 8.81977 7.83398 9.00008 7.83398C9.18039 7.83398 9.35583 7.7755 9.50008 7.66732L15.6667 3.04232V11.1673C15.6667 11.3883 15.5789 11.6003 15.4227 11.7566C15.2664 11.9129 15.0544 12.0007 14.8334 12.0007Z"
+                            fill="#20367F" />
+                    </svg>
+
+                </button>
+            </div>
+        </div>
+        <div class="form-control mt-10">
+            <div class="relative w-full">
+                <input type="password" formControlName="password"
+                    class="peer m-0 block h-[58px] w-full border border-solid border-[#D5D5D5] bg-[#F6F6F6] text-base rounded-lg bg-clip-padding py-4 px-3 font-normal leading-tight ease-in-out placeholder:text-transparent focus:border-primary focus:bg-white focus:pt-[1.625rem] focus:pb-[0.625rem]   [&:not(:placeholder-shown)]:pt-[1.625rem] [&:not(:placeholder-shown)]:pb-[0.625rem]"
+                    id="password" placeholder=" " />
+                <label for="password"
+                    class="pointer-events-none absolute top-0 left-0 origin-[0_0] border border-solid border-transparent py-4 px-3 text-neutral-700 transition-[opacity,_transform] duration-100 ease-in-out peer-focus:translate-x-[0.15rem] peer-focus:-translate-y-2 peer-focus:scale-[0.85] peer-focus:opacity-[0.65] peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:scale-[0.85] peer-[:not(:placeholder-shown)]:opacity-[0.65] motion-reduce:transition-none ">Password</label>
+                <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.25 9.0625H14.9219V4.6875C14.9219 3.30664 13.8027 2.1875 12.4219 2.1875H7.57812C6.19727 2.1875 5.07812 3.30664 5.07812 4.6875V9.0625H3.75C3.4043 9.0625 3.125 9.3418 3.125 9.6875V17.1875C3.125 17.5332 3.4043 17.8125 3.75 17.8125H16.25C16.5957 17.8125 16.875 17.5332 16.875 17.1875V9.6875C16.875 9.3418 16.5957 9.0625 16.25 9.0625ZM6.48438 4.6875C6.48438 4.08398 6.97461 3.59375 7.57812 3.59375H12.4219C13.0254 3.59375 13.5156 4.08398 13.5156 4.6875V9.0625H6.48438V4.6875ZM15.4688 16.4062H4.53125V10.4688H15.4688V16.4062Z"
+                            fill="#20367F" />
+                        <path
+                            d="M4.53125 16.4062H15.4688V10.4688H4.53125V16.4062ZM10 11.9922C10.1984 11.9922 10.3917 12.0552 10.5521 12.1721C10.7124 12.289 10.8316 12.4537 10.8923 12.6426C10.9531 12.8315 10.9524 13.0348 10.8904 13.2233C10.8283 13.4117 10.708 13.5756 10.5469 13.6914V14.7266C10.5469 14.8125 10.4766 14.8828 10.3906 14.8828H9.60938C9.52344 14.8828 9.45312 14.8125 9.45312 14.7266V13.6914C9.29198 13.5756 9.17172 13.4117 9.10964 13.2233C9.04756 13.0348 9.04686 12.8315 9.10765 12.6426C9.16844 12.4537 9.28758 12.289 9.44793 12.1721C9.60828 12.0552 9.80158 11.9922 10 11.9922Z"
+                            fill="#828DB1" />
+                        <path
+                            d="M9.45308 13.6916V14.7267C9.45308 14.8127 9.52339 14.883 9.60933 14.883H10.3906C10.4765 14.883 10.5468 14.8127 10.5468 14.7267V13.6916C10.7081 13.5758 10.8284 13.4119 10.8905 13.2234C10.9526 13.0349 10.9534 12.8316 10.8926 12.6426C10.8318 12.4537 10.7126 12.2889 10.5522 12.172C10.3918 12.0552 10.1984 11.9922 9.99995 11.9922C9.80148 11.9922 9.60812 12.0552 9.44772 12.172C9.28731 12.2889 9.16814 12.4537 9.10734 12.6426C9.04654 12.8316 9.04725 13.0349 9.10938 13.2234C9.17151 13.4119 9.29185 13.5758 9.45308 13.6916Z"
+                            fill="#20367F" />
+                    </svg>
+
+                </button>
+            </div>
+            <div class="mt-2 flex justify-end">
+                <button (click)="openDialog()" type="button" class="mb-0 text-eb-danger">Forgot
+                    password?</button>
+            </div>
+        </div>
+        <button [routerLink]="['/']" type="submit"
+            class="w-full bg-eb-primary text-white py-3 rounded-lg mt-5 font-bold">
+            Login
+        </button>
+    </form>
+</div>

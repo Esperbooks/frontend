@@ -1,3 +1,13 @@
-<p>auth-navbar works!</p>
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil, delectus voluptatum. Praesentium dignissimos voluptatum
-quae dolorum excepturi ipsam in nostrum ipsa nemo reprehenderit soluta, aliquam, deserunt id fugit veritatis mollitia.
+<div class="eb-navbar">
+    <nav class="bg-eb-primary py-3 px-5 flex justify-between">
+        <div class="title">
+            <h1 class="text-white text-[25px] font-bold tracking-[.09em]">ESPERBOOKS</h1>
+        </div>
+        <div class="nav-buttons flex gap-3 font-semibold text-base">
+            <button class="py-1 px-5 bg-inherit border rounded-md text-white hover:bg-white hover:text-black"
+                [routerLink]="['/login']">Login</button>
+            <button class="py-1 px-5 bg-white border rounded-md text-black hover:bg-inherit hover:text-white"
+                [routerLink]="['/signup']">Signup</button>
+        </div>
+    </nav>
+</div>
