@@ -33,7 +33,29 @@
     </div>
 
     <!-- Filtered Result - Table -->
-    <ngx-datatable #table class="material" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
-        rowHeight="auto" [limit]="10" [rows]="summaryRows">
-    </ngx-datatable>
+    <div class="mt-5">
+
+        <eb-table [rows]="summaryRows" [columnProps]="columnProps"></eb-table>
+
+        <!-- <ngx-datatable #table class="material" [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50"
+            rowHeight="auto" [limit]="10" [rows]="summaryRows">
+        </ngx-datatable> -->
+    </div>
+
+    <!-- Timesheet - Table -->
+    <div class="">
+
+        <div class="flex items-center gap-3 mt-5">
+            <div class="">
+                <p>Select Reporting Week Start Day: </p>
+            </div>
+            <div class="form-field">
+                <input type="date" class="h-12 rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900" name="" id="">
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <eb-table [rows]="timesheetRows" [columnProps]="timesheetProps" [heading]="'Time Sheet'"></eb-table>
+        </div>
+    </div>
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as _ from 'lodash';
 
 import { NavigationData, SidebarmenuInterface } from '../shared/data';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -13,13 +14,19 @@ import { NavigationData, SidebarmenuInterface } from '../shared/data';
 })
 export class LayoutComponent implements OnInit {
   sidebarNavigation!: SidebarmenuInterface[];
+  adminSidebarNavigation!: SidebarmenuInterface[];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
     this.getCurrentSidebarNavigation();
+  }
+
+  sanitizeSvg(svg: any) {
+    return this.sanitizer.bypassSecurityTrustHtml(svg);
   }
 
   getCurrentSidebarNavigation() {
@@ -31,5 +38,6 @@ export class LayoutComponent implements OnInit {
     const routeIndex = _.findIndex(allRoutes, (url: string) => url.includes(route));
 
     this.sidebarNavigation = NavigationData[routeIndex]?.sidebarMenu as SidebarmenuInterface[];
+    this.adminSidebarNavigation = NavigationData[routeIndex]?.adminSidebarMenu as SidebarmenuInterface[];
   }
 }

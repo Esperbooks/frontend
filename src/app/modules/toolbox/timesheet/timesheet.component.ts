@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ColumnMode, TableColumn } from '@swimlane/ngx-datatable';
+import { ColumnProps } from '../../../components/table/table.component';
 
 @Component({
   selector: 'eb-timesheet',
@@ -21,16 +21,90 @@ export class TimesheetComponent {
     }
   ]
 
-  // summaryColumns: TableColumn[] = [
-  //   "Total Utilized Hrs",
-  //   "Total Non Utilized Hrs",
-  //   "% Utilized Hrs",
-  //   "% Non Utilized Hrs",
-  //   "No of Workdays Within Period",
-  //   "Total Work Hrs Within Period",
-  //   "Utilization",
-  // ]
+  columnProps: ColumnProps[] = [
+    {
+      header: "Total Utilized Hrs",
+      prop: 'totalUtilizedHours'
+    },
+    {
+      header: "Total Non Utilized Hrs",
+      prop: 'totalUtilizedHours'
+    },
+    {
+      header: "% Utilized Hrs",
+      prop: 'totalUtilizedHours'
+    },
+    {
+      header: "% Non Utilized Hrs",
+      prop: 'totalUtilizedHours'
+    },
+    {
+      header: "No of Workdays Within Period",
+      prop: 'totalUtilizedHours'
+    },
+    {
+      header: "Total Work Hrs Within Period",
+      prop: 'totalUtilizedHours'
+    },
+    {
+      header: "Utilization",
+      prop: 'totalUtilizedHours'
+    },
+  ]
 
-  ColumnMode = ColumnMode;
+  timesheetProps: ColumnProps[] = [
+    {
+      header: "Activity Type",
+      prop: 'activityType'
+    },
+    {
+      header: "Project Number",
+      prop: 'projectNumber'
+    },
+    {
+      header: "MDR Number",
+      prop: 'mdrNumber'
+    },
+    {
+      header: "Activity Code",
+      prop: 'activityCode'
+    },
+    {
+      header: "Sub - Activity Code",
+      prop: 'subActivityCode'
+    },
+    {
+      header: "Description",
+      prop: 'description'
+    },
+  ]
+
+  timesheetRows: any[] = [
+    {
+      activityType: 'Follow up on project progress',
+      projectNumber: 30,
+      mdrNumber: 30,
+      activityCode: 2034,
+      subActivityCode: 10421,
+      description: 'Scheduling meeting with stakeholders'
+    },
+    {
+      activityType: 'Follow up on project progress',
+      projectNumber: 30,
+      mdrNumber: 30,
+      activityCode: 2034,
+      subActivityCode: 10421,
+      description: 'Following up on deliverables from subsidiary companies'
+    },
+    {
+      activityType: 'Follow up on project progress',
+      projectNumber: 30,
+      mdrNumber: 30,
+      activityCode: 2034,
+      subActivityCode: 10421,
+      description: 'Following up on deliverables from subsidiary companies '
+    },
+  ]
+
 
 }

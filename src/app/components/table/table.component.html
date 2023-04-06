@@ -1,0 +1,37 @@
+<div
+    class="relative w-full overflow-x-auto bg-white px-8 pt-5 pb-8 rounded-lg shadow-[0px_4px_13px_rgba(32,54,127,0.25)]">
+    <div *ngIf="heading" class="mb-5">
+        <h1 class="font-semibold text-base">{{heading}}</h1>
+    </div>
+    <div *ngIf="buttonConfig.length > 0" class="mb-5">
+        <button *ngFor="let btn of buttonConfig"
+            [ngClass]="btn.cssClass ? btn.cssClass : 'bg-eb-primary text-white rounded-lg py-2.5 px-5'"
+            (click)="btn?.clickAction()">
+            {{btn.title}}
+        </button>
+    </div>
+    <table class="w-full text-left text-sm">
+        <thead class=" text-eb-primary bg-eb-primary-4 ">
+            <tr>
+                <th *ngFor="let col of columnProps" scope="col" class="px-6 py-3 min-w-max">
+                    {{col.header}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of rows" class="bg-white border-b ">
+                <td *ngFor="let column of columnProps" class="px-6 py-4" (click)="rowClick(column)">
+                    <span *ngIf="!column?.cssMethod; else elseBlock" (click)="column?.clickAction(column)"
+                        [ngClass]="column?.cssClass ? column?.cssClass : ''">
+                        {{row[column.prop]}}
+                    </span>
+                    <ng-template #elseBlock>
+                        <span (click)="column?.clickAction" [ngClass]="column?.cssMethod(row[column.prop])">
+                            {{row[column.prop]}}
+                        </span>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

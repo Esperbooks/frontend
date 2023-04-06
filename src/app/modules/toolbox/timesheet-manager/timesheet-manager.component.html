@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <div class="p-10">
+        <div class="text-eb-secondary-1">
+            <h1 class="text-3xl">Time Sheet Management</h1>
+        </div>
+        <div class="mt-10">
+
+            <div class="flex my-10 items-center gap-5 font-bold">
+                <div>
+                    <button id="states-button" data-dropdown-toggle="dropdown-states"
+                        class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white  bg-eb-primary border border-eb-primary rounded-lg hover:bg-gray-200 hover:text-eb-primary hover:border-white"
+                        type="button">
+
+                        Export
+                        <svg class="hover: fill-eb-primary" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 17L15.5 12L10.5 7V17Z" fill="white" />
+                        </svg>
+                    </button>
+                    <div id="dropdown-states"
+                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                        <ul class="text-sm " aria-labelledby="states-button">
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 text-sm hover:bg-eb-primary-4 hover:text-eb-primary">
+                                    <div class="inline-flex items-center">
+                                        PDF
+                                    </div>
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 text-sm hover:bg-eb-primary-4 hover:text-eb-primary">
+                                    <div class="inline-flex items-center">
+                                        Excel
+                                    </div>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="">
+                    <button
+                        class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-10 text-sm text-center text-eb-primary border-eb-primary border-[1.5px] rounded-lg "
+                        type="button">Up to Date</button>
+                </div>
+            </div>
+
+            <eb-table [columnProps]="timesheetManagerProps" [rows]="timesheetManagerData"
+                heading="Monthly Time Sheet"></eb-table>
+        </div>
+    </div>
+</div>

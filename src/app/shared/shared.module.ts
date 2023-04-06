@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -13,10 +14,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   exports: [
     NavbarComponent,
-    MaterialModule
+    MaterialModule,
+    ComponentsModule,
+
   ],
   imports: [
     CommonModule,
+    ComponentsModule,
     MaterialModule
   ]
 })

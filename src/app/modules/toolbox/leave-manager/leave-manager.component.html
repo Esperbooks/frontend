@@ -1,0 +1,104 @@
+<div class="wrapper">
+    <div class="p-10">
+        <div class="text-eb-secondary-1">
+            <h1 class="text-3xl">Leave Request Management</h1>
+        </div>
+        <div class="mt-10">
+
+
+            <eb-table [columnProps]="leaveRequestProps" [rows]="leaveRequestRows" heading="Leave Request List"
+                (rowClicked)="onRowClicked($event)"></eb-table>
+        </div>
+    </div>
+</div>
+
+<ng-template #reviewTemplate>
+    <div class="p-2">
+        <div class="flex justify-end">
+            <button type="button" [mat-dialog-close]>
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.33051 5.33051C5.43501 5.22574 5.55916 5.14262 5.69583 5.08591C5.83251 5.02919 5.97903 5 6.12701 5C6.27499 5 6.42151 5.02919 6.55819 5.08591C6.69486 5.14262 6.81901 5.22574 6.92351 5.33051L12.877 11.2863L18.8305 5.33051C18.9351 5.22591 19.0593 5.14294 19.1959 5.08633C19.3326 5.02972 19.4791 5.00059 19.627 5.00059C19.7749 5.00059 19.9214 5.02972 20.0581 5.08633C20.1947 5.14294 20.3189 5.22591 20.4235 5.33051C20.5281 5.43511 20.6111 5.55928 20.6677 5.69595C20.7243 5.83261 20.7534 5.97909 20.7534 6.12701C20.7534 6.27493 20.7243 6.42141 20.6677 6.55807C20.6111 6.69474 20.5281 6.81891 20.4235 6.92351L14.4678 12.877L20.4235 18.8305C20.5281 18.9351 20.6111 19.0593 20.6677 19.1959C20.7243 19.3326 20.7534 19.4791 20.7534 19.627C20.7534 19.7749 20.7243 19.9214 20.6677 20.0581C20.6111 20.1947 20.5281 20.3189 20.4235 20.4235C20.3189 20.5281 20.1947 20.6111 20.0581 20.6677C19.9214 20.7243 19.7749 20.7534 19.627 20.7534C19.4791 20.7534 19.3326 20.7243 19.1959 20.6677C19.0593 20.6111 18.9351 20.5281 18.8305 20.4235L12.877 14.4678L6.92351 20.4235C6.81891 20.5281 6.69474 20.6111 6.55807 20.6677C6.42141 20.7243 6.27493 20.7534 6.12701 20.7534C5.97909 20.7534 5.83261 20.7243 5.69595 20.6677C5.55928 20.6111 5.43511 20.5281 5.33051 20.4235C5.22591 20.3189 5.14294 20.1947 5.08633 20.0581C5.02972 19.9214 5.00059 19.7749 5.00059 19.627C5.00059 19.4791 5.02972 19.3326 5.08633 19.1959C5.14294 19.0593 5.22591 18.9351 5.33051 18.8305L11.2863 12.877L5.33051 6.92351C5.22574 6.81901 5.14262 6.69486 5.08591 6.55819C5.02919 6.42151 5 6.27499 5 6.12701C5 5.97903 5.02919 5.83251 5.08591 5.69583C5.14262 5.55916 5.22574 5.43501 5.33051 5.33051Z"
+                        fill="#E8152A" />
+                </svg>
+
+            </button>
+        </div>
+        <div class="px-6 pb-6">
+            <div class="">
+                <h1 class="text-eb-secondary-1 font-semibold">New Leave Request</h1>
+            </div>
+
+            <form class="text-eb-secondary-3">
+                <div class="form-control mt-5">
+                    <div class="relative w-full">
+                        <label for="leaveType" class="text-eb-secondary-3 text-sm">Leave Type</label>
+                        <select id="leaveType"
+                            class="bg-gray-50 mt-2 border w-full border-gray-300 text-sm rounded-lg h-10 block p-2.5">
+                            <option value="Annual">Annual</option>
+                            <option value="Compassionate">Compassionate</option>
+                            <option value="Sick">Sick</option>
+                            <option value="Paternity">Paternity</option>
+                            <option value="Maternity">Maternity</option>
+                            <option value="Without Pay">Without Pay</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-5 flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="startDate" class="text-eb-secondary-3 text-sm">Start Date</label>
+                            <input type="date" id="startDate"
+                                class=" border border-[#D5D5D5] bg-[#F6F6F6] text-sm rounded-lg block w-full p-2.5 "
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="endDate" class="text-eb-secondary-3 text-sm">End Date</label>
+                            <input type="date" id="endDate"
+                                class=" border border-[#D5D5D5] bg-[#F6F6F6] text-sm rounded-lg block w-full p-2.5 "
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="form-control">
+                        <div class="relative w-full">
+                            <label for="narration" class="text-eb-secondary-3 text-sm">Narration</label>
+                            <textarea
+                                class="border border-[#D5D5D5] bg-[#F6F6F6] text-sm rounded-lg block w-full p-2.5 "
+                                required name="" id="narration" rows="2" placeholder="Type here">
+
+                            </textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="form-control">
+                        <div class="relative w-full">
+                            <label for="managerNarration" class="text-eb-secondary-3 text-sm">Manager's
+                                Narration</label>
+                            <textarea
+                                class="border border-[#D5D5D5] bg-[#F6F6F6] text-sm rounded-lg block w-full p-2.5 "
+                                required name="" id="managerNarration" rows="2" placeholder="Type here">
+
+                            </textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-4">
+                    <button type="submit" class="w-full bg-red-800 text-white py-3 rounded-lg mt-10 font-semibold">
+                        Reject
+                    </button>
+                    <button type="submit" class="w-full bg-eb-primary text-white py-3 rounded-lg mt-10 font-semibold">
+                        Accept
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</ng-template>

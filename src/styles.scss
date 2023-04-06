@@ -7,9 +7,10 @@
 
 @import 'animate.css';
 
-// @import '@swimlane/ngx-datatable/index.css';
-// // @import '@swimlane/ngx-datatable/themes/material.scss';
-// @import '@swimlane/ngx-datatable/assets/icons.css';
+@import './../node_modules/@swimlane/ngx-datatable/index.scss';
+@import './../node_modules/@swimlane/ngx-datatable/themes/material.scss';
+// @import './../node_modules/@swimlane/ngx-datatable/assets/icons.scss';
+@import './../node_modules/@swimlane/ngx-datatable/assets/icons.css';
 
 html, body {
     font-family: 'Source Sans Pro', sans-serif;
