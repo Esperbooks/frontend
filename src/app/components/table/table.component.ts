@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 
 export interface ColumnProps {
   header: string;
@@ -21,6 +21,14 @@ export interface ButtonConfigInterface {
   };
 }
 
+export interface TableOptionsInterface {
+  title: string;
+  cssClass?: string;
+  clickAction?: {
+    (): void;
+  };
+}
+
 @Component({
   selector: 'eb-table',
   templateUrl: './table.component.html',
@@ -31,17 +39,46 @@ export class TableComponent implements OnInit {
   @Input() columnProps: ColumnProps[] = [];
   @Input() heading!: string;
   @Input() buttonConfig: ButtonConfigInterface[] = [];
-  // @Input() rowClick!: {
-  //   (data?: any): void
-  // }
+  @Input() enableCheckbox = false;
+  @Input() options: TableOptionsInterface[] = [];
 
   @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
+  @Output() selectedTableData: EventEmitter<any> = new EventEmitter<any>();
+
+  @ViewChild('isAllCheckedControl') isAllCheckedControl!: TemplateRef<any>;
+
+  isAllChecked = false;
+  selectedData: any[] = [];
 
   ngOnInit(): void {
-    console.log(this.columnProps)
+    if (this.enableCheckbox) {
+      this.mapDataWithCheckbox();
+    }
   }
 
   rowClick(data: any) {
     this.rowClicked.emit(data)
   }
+
+  mapDataWithCheckbox() {
+    this.rows = this.rows.map(data => {
+      return { ...data, ...{ selected: false } }
+    })
+  }
+
+  selectData(all = false, index = 0) {
+    if (all) {
+      this.isAllChecked = !this.isAllChecked;
+      this.rows = this.rows.map(data => {
+        return { ...data, ...{ selected: this.isAllChecked } }
+      });
+      this.selectedData = this.rows
+    } else {
+      this.rows[index].selected = !this.rows[index].selected;
+      this.selectedData = this.rows.filter(x => x.selected);
+      this.isAllChecked = this.rows.map(x => x.selected).every(x => x === true);
+    }
+    this.selectedTableData.emit(this.selectedData);
+  }
+
 }

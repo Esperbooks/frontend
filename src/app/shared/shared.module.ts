@@ -4,6 +4,7 @@ import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComponentsModule } from '../components/components.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,7 +22,8 @@ import { ComponentsModule } from '../components/components.module';
   imports: [
     CommonModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

@@ -6,8 +6,8 @@
         <div class="relative -bottom-3.5 animate__animated animate__fadeInRight">
             <div class="tab flex gap-10 text-base font-semibold text-eb-primary-3 justify-center">
                 <div *ngFor="let nav of navigation; let i = index">
-                    <button
-                        [ngClass]="i === 1 ? 'text-white border-b-[3px] border-b-eb-danger' : ''">{{nav.name}}</button>
+                    <button [ngClass]="i === routeIndex ? 'text-white border-b-[3px] border-b-eb-danger' : ''"
+                        [routerLink]="[nav.url]">{{nav.name}}</button>
                 </div>
             </div>
         </div>
