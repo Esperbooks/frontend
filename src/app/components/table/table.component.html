@@ -1,5 +1,5 @@
 <div
-    class="relative w-full overflow-x-auto bg-white px-8 pt-5 pb-8 rounded-lg shadow-[0px_4px_13px_rgba(32,54,127,0.25)]">
+    class="relative w-full overflow-x-hidden bg-white px-8 pt-5 pb-8 rounded-lg shadow-[0px_4px_13px_rgba(32,54,127,0.25)]">
     <div *ngIf="heading" class="mb-5">
         <h1 class="font-semibold text-base">{{heading}}</h1>
     </div>
@@ -10,82 +10,87 @@
             {{btn.title}}
         </button>
     </div>
-    <table class="w-full text-left text-sm">
-        <thead class=" text-eb-primary bg-eb-primary-4 "
-            [ngClass]="rows.length < 1 ? 'bg-eb-primary-4 text-gray-400' : ''">
-            <tr>
-                <th *ngIf="enableCheckbox" scope="col" class="px-6 py-3 min-w-max">
-                    <div class="flex items-center">
-                        <input id="checkbox-header" (change)="selectData(true)" type="checkbox" [checked]="isAllChecked"
-                            #isAllCheckedControl
-                            class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
-                        <label for="checkbox-header" class="sr-only">checkbox</label>
-                    </div>
-                </th>
-                <th *ngFor="let col of columnProps" scope="col" class="px-6 py-3 min-w-max">
-                    {{col.header}}
-                </th>
-                <th *ngIf="options && options.length > 0" class="px-6 py-3 min-w-max">
-                    Options
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let row of rows; let i = index" class="bg-white border-b ">
-                <td *ngIf="enableCheckbox" class="w-4 px-6 py-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table" (change)="selectData(false, i)" type="checkbox"
-                            [checked]="row?.selected"
-                            class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded ">
-                        <label for="checkbox-table" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <td *ngFor="let column of columnProps" class="px-6 py-4" (click)="rowClick(column)">
-                    <span *ngIf="!column?.cssMethod; else elseBlock"
-                        (click)="column?.clickAction && column?.clickAction(column)"
-                        [ngClass]="column?.cssClass ? column?.cssClass : ''">
-                        {{row[column.prop]}}
-                    </span>
-                    <ng-template #elseBlock>
-                        <span (click)="column?.clickAction" [ngClass]="column?.cssMethod(row[column.prop])">
+    <div class="w-full overflow-x-auto">
+        <table class="w-full text-left text-sm relative">
+            <thead class=" text-eb-primary bg-eb-primary-4"
+                [ngClass]="rows.length < 1 ? 'bg-eb-primary-4 text-gray-400' : ''">
+                <tr class="">
+                    <th *ngIf="enableCheckbox" scope="col" class="px-6 py-3 min-w-max ">
+                        <div class="flex items-center">
+                            <input id="checkbox-header" (change)="selectData(true)" type="checkbox"
+                                [checked]="isAllChecked" #isAllCheckedControl
+                                class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                            <label for="checkbox-header" class="sr-only">checkbox</label>
+                        </div>
+                    </th>
+                    <th *ngFor="let col of columnProps" scope="col" class="px-6 py-3 min-w-max">
+                        {{col.header}}
+                    </th>
+                    <th *ngIf="options && options.length > 0" class="px-6 py-3 min-w-max">
+                        Options
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of rows; let i = index" class="bg-white border-b ">
+                    <td *ngIf="enableCheckbox" class="w-4 px-6 py-4">
+                        <div class="flex items-center">
+                            <input id="checkbox-table" (change)="selectData(false, i)" type="checkbox"
+                                [checked]="row?.selected"
+                                class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded ">
+                            <label for="checkbox-table" class="sr-only">checkbox</label>
+                        </div>
+                    </td>
+                    <td *ngFor="let column of columnProps" class="px-6 py-4" (click)="rowClick(column)">
+                        <span *ngIf="!column?.cssMethod; else elseBlock"
+                            (click)="column?.clickAction && column?.clickAction(column)"
+                            [ngClass]="column?.cssClass ? column?.cssClass : ''">
                             {{row[column.prop]}}
                         </span>
-                    </ng-template>
-                </td>
-                <td *ngIf="options && options.length > 0" class="px-6 py-4 text-center">
+                        <ng-template #elseBlock>
+                            <span (click)="column?.clickAction" [ngClass]="column?.cssMethod(row[column.prop])">
+                                {{row[column.prop]}}
+                            </span>
+                        </ng-template>
+                    </td>
+                    <td *ngIf="options && options.length > 0" class="px-6 py-4 text-center">
 
 
 
-                    <button id="dropdownDividerButton" data-dropdown-toggle="dropdownOptions"
-                        class=" text-center inline-flex items-center" type="button"> <svg width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 4.875C12.6213 4.875 13.125 4.37132 13.125 3.75C13.125 3.12868 12.6213 2.625 12 2.625C11.3787 2.625 10.875 3.12868 10.875 3.75C10.875 4.37132 11.3787 4.875 12 4.875Z"
-                                stroke="#20367F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M12 13.125C12.6213 13.125 13.125 12.6213 13.125 12C13.125 11.3787 12.6213 10.875 12 10.875C11.3787 10.875 10.875 11.3787 10.875 12C10.875 12.6213 11.3787 13.125 12 13.125Z"
-                                stroke="#20367F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M12 21.375C12.6213 21.375 13.125 20.8713 13.125 20.25C13.125 19.6287 12.6213 19.125 12 19.125C11.3787 19.125 10.875 19.6287 10.875 20.25C10.875 20.8713 11.3787 21.375 12 21.375Z"
-                                stroke="#20367F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg></button>
+                        <button id="dropdownDividerButton" data-dropdown-toggle="dropdownOptions"
+                            class=" text-center inline-flex items-center" type="button"> <svg width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 4.875C12.6213 4.875 13.125 4.37132 13.125 3.75C13.125 3.12868 12.6213 2.625 12 2.625C11.3787 2.625 10.875 3.12868 10.875 3.75C10.875 4.37132 11.3787 4.875 12 4.875Z"
+                                    stroke="#20367F" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 13.125C12.6213 13.125 13.125 12.6213 13.125 12C13.125 11.3787 12.6213 10.875 12 10.875C11.3787 10.875 10.875 11.3787 10.875 12C10.875 12.6213 11.3787 13.125 12 13.125Z"
+                                    stroke="#20367F" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 21.375C12.6213 21.375 13.125 20.8713 13.125 20.25C13.125 19.6287 12.6213 19.125 12 19.125C11.3787 19.125 10.875 19.6287 10.875 20.25C10.875 20.8713 11.3787 21.375 12 21.375Z"
+                                    stroke="#20367F" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></button>
 
-                    <!-- Dropdown menu -->
-                    <div id="dropdownOptions"
-                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                        <ul class="py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
-                            <li *ngFor="let option of options">
-                                <button (click)="option?.clickAction && option?.clickAction()" type="button"
-                                    class="block px-4 py-2 w-full hover:bg-eb-primary-4 hover:text-eb-primary-1">{{option?.title}}</button>
-                            </li>
-                        </ul>
-                    </div>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownOptions"
+                            class="z-10 hidden shadow-lg bg-white divide-y divide-gray-100 rounded-lg w-44">
+                            <ul class="py-2 text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
+                                <li *ngFor="let option of options">
+                                    <button (click)="option?.clickAction && option?.clickAction()" type="button"
+                                        class="block px-4 py-2 w-full hover:bg-eb-primary-4 hover:text-eb-primary-1">{{option?.title}}</button>
+                                </li>
+                            </ul>
+                        </div>
 
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="mt-5">
         <ng-content></ng-content>
     </div>

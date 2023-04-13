@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ColumnProps, TableOptionsInterface } from '../../../../components/table/table.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'eb-settle-transactions',
@@ -7,6 +8,10 @@ import { ColumnProps, TableOptionsInterface } from '../../../../components/table
   styleUrls: ['./settle-transactions.component.scss']
 })
 export class SettleTransactionsComponent implements OnInit {
+  @ViewChild('settleTransactionTemplate') settleTransactionTemplate!: TemplateRef<any>;
+  @ViewChild('requestChangeTemplate') requestChangeTemplate!: TemplateRef<any>;
+  @ViewChild('newTransactionTemplate') newTransactionTemplate!: TemplateRef<any>;
+
   transactionProps: ColumnProps[] = [
     {
       header: "TransactionID",
@@ -39,16 +44,20 @@ export class SettleTransactionsComponent implements OnInit {
     {
       title: 'Settle Transaction',
       clickAction: () => {
-        console.log('Settle transactions')
+        this.openDialog(this.settleTransactionTemplate);
       }
     },
     {
       title: 'Request Change',
       clickAction: () => {
-        console.log('Request Change')
+        this.openDialog(this.requestChangeTemplate);
       }
     }
   ]
+
+  constructor(private dialog: MatDialog) {
+
+  }
 
   ngOnInit(): void {
     this.getTransactionRows();
@@ -65,5 +74,17 @@ export class SettleTransactionsComponent implements OnInit {
         status: 'Confirmed',
       }
     )
+  }
+
+  openDialog(templateRef: any, width = '500px'): void {
+    const dialogRef = this.dialog.open(templateRef, {
+      panelClass: 'eb-dialog-container',
+      width,
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log(result);
+    });
   }
 }

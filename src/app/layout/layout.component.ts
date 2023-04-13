@@ -49,8 +49,6 @@ export class LayoutComponent implements OnInit {
   getCurrentSidebarNavigation(url: string) {
     const allRoutes = NavigationData.map(i => i.url);
 
-    console.log({ allRoutes })
-
     const route: string | any = _.get(url.split('/'), '[1]');
 
     this.routeIndex = _.findIndex(allRoutes, (url: string) => url.includes(route));
@@ -64,16 +62,10 @@ export class LayoutComponent implements OnInit {
 
     const sidebarRoute: string | any = _.get(url.split('/'), '[2]')
 
-    console.log(this.sidebarNavigation);
-
     if (this.sidebarNavigation.length > 0) {
       const sidebarUrls: string[] = this.sidebarNavigation.map(x => x?.url) as string[];
 
-      console.log({ sidebarUrls })
-
       this.currentSidebarIndex = _.findIndex(sidebarUrls, (url: string) => url.includes(sidebarRoute))
-
-      console.log(this.currentSidebarIndex)
 
       const currentSideBar = this.sidebarNavigation[this.currentSidebarIndex];
 
@@ -82,15 +74,7 @@ export class LayoutComponent implements OnInit {
       }
     }
 
-
-
-    // if (this.sidebarNavigation?.length > 0) {
-    //   console.log('Current Route', _.get(url.split('/'), '[2]'))
-    // }
-
   }
 
-  getParentMenu(nav: SidebarmenuInterface) {
-    console.log(nav)
-  }
+  getParentMenu(nav: SidebarmenuInterface) { }
 }

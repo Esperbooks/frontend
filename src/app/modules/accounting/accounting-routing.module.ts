@@ -10,6 +10,8 @@ import { TaxSettlementsComponent } from './tax-settlements/tax-settlements.compo
 import { NewAssetsComponent } from './assets/new-assets/new-assets.component';
 import { InventoryManagementComponent } from './assembly/inventory-management/inventory-management.component';
 import { ReportsComponent } from './reports/reports.component';
+import { AssetRegisterComponent } from './assets/asset-register/asset-register.component';
+import { AssetJournalSummaryComponent } from './assets/asset-journal-summary/asset-journal-summary.component';
 
 const routes: Routes = [
   {
@@ -59,11 +61,11 @@ const routes: Routes = [
       },
       {
         path: 'asset-register',
-        component: NewAssetsComponent
+        component: AssetRegisterComponent
       },
       {
         path: 'asset-journal-summary',
-        component: NewAssetsComponent
+        component: AssetJournalSummaryComponent
       },
     ]
   },

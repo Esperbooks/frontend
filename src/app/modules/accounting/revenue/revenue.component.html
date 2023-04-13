@@ -1,1 +1,108 @@
-<p>revenue works!</p>
+<div class="wrapper">
+    <div>
+
+        <div class="text-eb-secondary-1 font-semibold">
+            <h1 class="text-3xl">Revenue</h1>
+        </div>
+        <div class="flex items-center justify-end gap-3 mt-5">
+            <div class="form-field ">
+                <select id="project"
+                    class="bg-gray-50 border border-gray-300 w-24 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                    <option selected disabled>Filter By</option>
+                    <option value="Week">Week</option>
+                    <option value="Month">Month</option>
+                </select>
+            </div>
+            <div class="form-field ">
+                <select id="project"
+                    class="bg-gray-50 border border-gray-300 w-24 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                    <option value="Week">Week</option>
+                    <option value="Month">Month</option>
+                </select>
+            </div>
+            <p>From</p>
+            <div class="form-field">
+                <input type="date" class="h-12 rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900" name="" id="">
+            </div>
+            <p>To</p>
+            <div class="form-field">
+                <input type="date" class="h-12 rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900" name="" id="">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Filtered Result - Table -->
+    <div class="mt-5">
+
+        <eb-table heading="Revenue Summary" [rows]="summaryRows" [columnProps]="columnProps"></eb-table>
+    </div>
+
+    <!-- Timesheet - Table -->
+    <div class="">
+
+        <div class="flex items-center gap-3 mt-5">
+            <div class="flex gap-5">
+                <div>
+                    <button class="btn-primary" type="button">
+
+                        New Invoice
+
+                    </button>
+
+
+                </div>
+
+                <div class="">
+                    <button id="states-button" data-dropdown-toggle="dropdown-states" class="btn-primary-alt flex gap-3"
+                        type="button">Export <svg class="hover: fill-eb-primary" width="25" height="24"
+                            viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 17L15.5 12L10.5 7V17Z" />
+                        </svg></button>
+                    <div id="dropdown-states"
+                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                        <ul class="text-sm " aria-labelledby="states-button">
+                            <li>
+                                <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                                    data-dropdown-placement="right-start" type="button"
+                                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 ">Export
+                                    PDF/XLS<svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></button>
+                                <div id="doubleDropdown"
+                                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                        aria-labelledby="doubleDropdownButton">
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">PDF</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Excel</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 text-sm hover:bg-eb-primary-4 hover:text-eb-primary">
+                                    <div class="inline-flex items-center">
+                                        Journal/Ledger
+                                    </div>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <eb-table [options]="tableOptions" [enableCheckbox]="true" [rows]="invoiceRows"
+                [columnProps]="invoiceProps"></eb-table>
+        </div>
+    </div>
+</div>
