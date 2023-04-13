@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ColumnProps, TableOptionsInterface } from '../../../components/table/table.component';
+import { ColumnProps, } from '../../../components/table/table.component';
 
 @Component({
   selector: 'eb-payroll',

@@ -41,6 +41,8 @@ export class TableComponent implements OnInit {
   @Input() buttonConfig: ButtonConfigInterface[] = [];
   @Input() enableCheckbox = false;
   @Input() options: TableOptionsInterface[] = [];
+  @Input() editBtn = false;
+  @Input() deleteBtn = false;
 
   @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectedTableData: EventEmitter<any> = new EventEmitter<any>();

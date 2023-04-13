@@ -1,1 +1,307 @@
-<p>asset-register works!</p>
+<div class="wrapper">
+    <div class="p-10">
+        <div class="text-eb-secondary-1">
+            <h1 class="text-3xl">Asset Register</h1>
+        </div>
+
+        <div class="mt-10">
+            <div class="flex my-10 items-center justify-between">
+                <div class="flex gap-5">
+                    <div>
+                        <button id="states-button" data-dropdown-toggle="dropdown-states" class="btn-primary flex gap-3"
+                            type="button">
+
+                            Export
+                            <svg class="hover: fill-eb-primary" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.5 17L15.5 12L10.5 7V17Z" fill="white" />
+                            </svg>
+                        </button>
+                        <div id="dropdown-states"
+                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                            <ul class="text-sm " aria-labelledby="states-button">
+                                <li>
+                                    <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                                        data-dropdown-placement="right-start" type="button"
+                                        class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 ">Export
+                                        PDF/XLS<svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                clip-rule="evenodd"></path>
+                                        </svg></button>
+                                    <div id="doubleDropdown"
+                                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                            aria-labelledby="doubleDropdownButton">
+                                            <li>
+                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">PDF</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Excel</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <button type="button"
+                                        class="inline-flex w-full px-4 py-2 text-sm hover:bg-eb-primary-4 hover:text-eb-primary">
+                                        <div class="inline-flex items-center">
+                                            Journal/Ledger
+                                        </div>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <eb-table [columnProps]="payrollProps" [rows]="payrollRows">
+
+            </eb-table>
+        </div>
+    </div>
+</div>
+
+<ng-template #settleTransactionTemplate>
+    <div class="p-2">
+        <div class="flex justify-end">
+            <button type="button" [mat-dialog-close]>
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.33051 5.33051C5.43501 5.22574 5.55916 5.14262 5.69583 5.08591C5.83251 5.02919 5.97903 5 6.12701 5C6.27499 5 6.42151 5.02919 6.55819 5.08591C6.69486 5.14262 6.81901 5.22574 6.92351 5.33051L12.877 11.2863L18.8305 5.33051C18.9351 5.22591 19.0593 5.14294 19.1959 5.08633C19.3326 5.02972 19.4791 5.00059 19.627 5.00059C19.7749 5.00059 19.9214 5.02972 20.0581 5.08633C20.1947 5.14294 20.3189 5.22591 20.4235 5.33051C20.5281 5.43511 20.6111 5.55928 20.6677 5.69595C20.7243 5.83261 20.7534 5.97909 20.7534 6.12701C20.7534 6.27493 20.7243 6.42141 20.6677 6.55807C20.6111 6.69474 20.5281 6.81891 20.4235 6.92351L14.4678 12.877L20.4235 18.8305C20.5281 18.9351 20.6111 19.0593 20.6677 19.1959C20.7243 19.3326 20.7534 19.4791 20.7534 19.627C20.7534 19.7749 20.7243 19.9214 20.6677 20.0581C20.6111 20.1947 20.5281 20.3189 20.4235 20.4235C20.3189 20.5281 20.1947 20.6111 20.0581 20.6677C19.9214 20.7243 19.7749 20.7534 19.627 20.7534C19.4791 20.7534 19.3326 20.7243 19.1959 20.6677C19.0593 20.6111 18.9351 20.5281 18.8305 20.4235L12.877 14.4678L6.92351 20.4235C6.81891 20.5281 6.69474 20.6111 6.55807 20.6677C6.42141 20.7243 6.27493 20.7534 6.12701 20.7534C5.97909 20.7534 5.83261 20.7243 5.69595 20.6677C5.55928 20.6111 5.43511 20.5281 5.33051 20.4235C5.22591 20.3189 5.14294 20.1947 5.08633 20.0581C5.02972 19.9214 5.00059 19.7749 5.00059 19.627C5.00059 19.4791 5.02972 19.3326 5.08633 19.1959C5.14294 19.0593 5.22591 18.9351 5.33051 18.8305L11.2863 12.877L5.33051 6.92351C5.22574 6.81901 5.14262 6.69486 5.08591 6.55819C5.02919 6.42151 5 6.27499 5 6.12701C5 5.97903 5.02919 5.83251 5.08591 5.69583C5.14262 5.55916 5.22574 5.43501 5.33051 5.33051Z"
+                        fill="#E8152A" />
+                </svg>
+
+            </button>
+        </div>
+        <div class="px-6 pb-6">
+            <div class="flex justify-between">
+                <h1 class="text-eb-secondary-1 font-semibold">Purchase Order</h1>
+                <h1 class="text-eb-secondary-1 font-semibold"><span class="text-gray-300">Purchase ID:</span>
+                    12229102-E839R01</h1>
+            </div>
+
+            <form class="text-eb-secondary-3 flex flex-col gap-4 pt-4">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="itemName" class="text-eb-secondary-3 text-sm">Item Name</label>
+                        <input type="text" id="itemName" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="description" class="text-eb-secondary-3 text-sm">Description</label>
+                        <input type="text" id="description" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="quantity" class="text-eb-secondary-3 text-sm">Quantity</label>
+                            <input type="number" id="quantity" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="unitPrice" class="text-eb-secondary-3 text-sm">Unit Price</label>
+                            <input type="number" id="unitPrice" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="amount" class="text-eb-secondary-3 text-sm">Amount</label>
+                        <input type="number" id="amount" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="tax" class="text-eb-secondary-3 text-sm">Tax</label>
+                            <input type="number" id="tax" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="currency" class="text-eb-secondary-3 text-sm">Currency</label>
+                            <select id="currency" placeholder="select currency" class="eb-select-primary">
+                                <option value="USD">USD</option>
+                                <option value="NGN">NGN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-4">
+                    <button type="submit" class="w-full bg-eb-primary text-white py-3 rounded-lg mt-10 font-semibold">
+                        Create Purchase Order
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #requestChangeTemplate>
+    <div class="p-2">
+        <div class="flex justify-end">
+            <button type="button" [mat-dialog-close]>
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.33051 5.33051C5.43501 5.22574 5.55916 5.14262 5.69583 5.08591C5.83251 5.02919 5.97903 5 6.12701 5C6.27499 5 6.42151 5.02919 6.55819 5.08591C6.69486 5.14262 6.81901 5.22574 6.92351 5.33051L12.877 11.2863L18.8305 5.33051C18.9351 5.22591 19.0593 5.14294 19.1959 5.08633C19.3326 5.02972 19.4791 5.00059 19.627 5.00059C19.7749 5.00059 19.9214 5.02972 20.0581 5.08633C20.1947 5.14294 20.3189 5.22591 20.4235 5.33051C20.5281 5.43511 20.6111 5.55928 20.6677 5.69595C20.7243 5.83261 20.7534 5.97909 20.7534 6.12701C20.7534 6.27493 20.7243 6.42141 20.6677 6.55807C20.6111 6.69474 20.5281 6.81891 20.4235 6.92351L14.4678 12.877L20.4235 18.8305C20.5281 18.9351 20.6111 19.0593 20.6677 19.1959C20.7243 19.3326 20.7534 19.4791 20.7534 19.627C20.7534 19.7749 20.7243 19.9214 20.6677 20.0581C20.6111 20.1947 20.5281 20.3189 20.4235 20.4235C20.3189 20.5281 20.1947 20.6111 20.0581 20.6677C19.9214 20.7243 19.7749 20.7534 19.627 20.7534C19.4791 20.7534 19.3326 20.7243 19.1959 20.6677C19.0593 20.6111 18.9351 20.5281 18.8305 20.4235L12.877 14.4678L6.92351 20.4235C6.81891 20.5281 6.69474 20.6111 6.55807 20.6677C6.42141 20.7243 6.27493 20.7534 6.12701 20.7534C5.97909 20.7534 5.83261 20.7243 5.69595 20.6677C5.55928 20.6111 5.43511 20.5281 5.33051 20.4235C5.22591 20.3189 5.14294 20.1947 5.08633 20.0581C5.02972 19.9214 5.00059 19.7749 5.00059 19.627C5.00059 19.4791 5.02972 19.3326 5.08633 19.1959C5.14294 19.0593 5.22591 18.9351 5.33051 18.8305L11.2863 12.877L5.33051 6.92351C5.22574 6.81901 5.14262 6.69486 5.08591 6.55819C5.02919 6.42151 5 6.27499 5 6.12701C5 5.97903 5.02919 5.83251 5.08591 5.69583C5.14262 5.55916 5.22574 5.43501 5.33051 5.33051Z"
+                        fill="#E8152A" />
+                </svg>
+
+            </button>
+        </div>
+        <div class="px-6 pb-6">
+            <div class="flex justify-between">
+                <h1 class="text-eb-secondary-1 font-semibold">Purchase Order</h1>
+                <h1 class="text-eb-secondary-1 font-semibold"><span class="text-gray-300">Purchase ID:</span>
+                    12229102-E839R01</h1>
+            </div>
+
+            <form class="text-eb-secondary-3 flex flex-col gap-4 pt-4">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="itemName" class="text-eb-secondary-3 text-sm">Item Name</label>
+                        <input type="text" id="itemName" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="description" class="text-eb-secondary-3 text-sm">Description</label>
+                        <input type="text" id="description" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="quantity" class="text-eb-secondary-3 text-sm">Quantity</label>
+                            <input type="number" id="quantity" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="unitPrice" class="text-eb-secondary-3 text-sm">Unit Price</label>
+                            <input type="number" id="unitPrice" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="amount" class="text-eb-secondary-3 text-sm">Amount</label>
+                        <input type="number" id="amount" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="tax" class="text-eb-secondary-3 text-sm">Tax</label>
+                            <input type="number" id="tax" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="currency" class="text-eb-secondary-3 text-sm">Currency</label>
+                            <select id="currency" placeholder="select currency" class="eb-select-primary">
+                                <option value="USD">USD</option>
+                                <option value="NGN">NGN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-4">
+                    <button type="submit" class="w-full bg-eb-primary text-white py-3 rounded-lg mt-10 font-semibold">
+                        Create Purchase Order
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #newTransactionTemplate>
+    <div class="p-2">
+        <div class="flex justify-end">
+            <button type="button" [mat-dialog-close]>
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.33051 5.33051C5.43501 5.22574 5.55916 5.14262 5.69583 5.08591C5.83251 5.02919 5.97903 5 6.12701 5C6.27499 5 6.42151 5.02919 6.55819 5.08591C6.69486 5.14262 6.81901 5.22574 6.92351 5.33051L12.877 11.2863L18.8305 5.33051C18.9351 5.22591 19.0593 5.14294 19.1959 5.08633C19.3326 5.02972 19.4791 5.00059 19.627 5.00059C19.7749 5.00059 19.9214 5.02972 20.0581 5.08633C20.1947 5.14294 20.3189 5.22591 20.4235 5.33051C20.5281 5.43511 20.6111 5.55928 20.6677 5.69595C20.7243 5.83261 20.7534 5.97909 20.7534 6.12701C20.7534 6.27493 20.7243 6.42141 20.6677 6.55807C20.6111 6.69474 20.5281 6.81891 20.4235 6.92351L14.4678 12.877L20.4235 18.8305C20.5281 18.9351 20.6111 19.0593 20.6677 19.1959C20.7243 19.3326 20.7534 19.4791 20.7534 19.627C20.7534 19.7749 20.7243 19.9214 20.6677 20.0581C20.6111 20.1947 20.5281 20.3189 20.4235 20.4235C20.3189 20.5281 20.1947 20.6111 20.0581 20.6677C19.9214 20.7243 19.7749 20.7534 19.627 20.7534C19.4791 20.7534 19.3326 20.7243 19.1959 20.6677C19.0593 20.6111 18.9351 20.5281 18.8305 20.4235L12.877 14.4678L6.92351 20.4235C6.81891 20.5281 6.69474 20.6111 6.55807 20.6677C6.42141 20.7243 6.27493 20.7534 6.12701 20.7534C5.97909 20.7534 5.83261 20.7243 5.69595 20.6677C5.55928 20.6111 5.43511 20.5281 5.33051 20.4235C5.22591 20.3189 5.14294 20.1947 5.08633 20.0581C5.02972 19.9214 5.00059 19.7749 5.00059 19.627C5.00059 19.4791 5.02972 19.3326 5.08633 19.1959C5.14294 19.0593 5.22591 18.9351 5.33051 18.8305L11.2863 12.877L5.33051 6.92351C5.22574 6.81901 5.14262 6.69486 5.08591 6.55819C5.02919 6.42151 5 6.27499 5 6.12701C5 5.97903 5.02919 5.83251 5.08591 5.69583C5.14262 5.55916 5.22574 5.43501 5.33051 5.33051Z"
+                        fill="#E8152A" />
+                </svg>
+
+            </button>
+        </div>
+        <div class="px-6 pb-6">
+            <div class="flex justify-between">
+                <h1 class="text-eb-secondary-1 font-semibold">Purchase Order</h1>
+                <h1 class="text-eb-secondary-1 font-semibold"><span class="text-gray-300">Purchase ID:</span>
+                    12229102-E839R01</h1>
+            </div>
+
+            <form class="text-eb-secondary-3 flex flex-col gap-4 pt-4">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="itemName" class="text-eb-secondary-3 text-sm">Item Name</label>
+                        <input type="text" id="itemName" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="description" class="text-eb-secondary-3 text-sm">Description</label>
+                        <input type="text" id="description" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="quantity" class="text-eb-secondary-3 text-sm">Quantity</label>
+                            <input type="number" id="quantity" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="unitPrice" class="text-eb-secondary-3 text-sm">Unit Price</label>
+                            <input type="number" id="unitPrice" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="amount" class="text-eb-secondary-3 text-sm">Amount</label>
+                        <input type="number" id="amount" class=" eb-input-primary " required>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-3 w-full">
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="tax" class="text-eb-secondary-3 text-sm">Tax</label>
+                            <input type="number" id="tax" class=" eb-input-primary " required>
+                        </div>
+                    </div>
+                    <div class="form-control w-full">
+                        <div class="relative w-full">
+                            <label for="currency" class="text-eb-secondary-3 text-sm">Currency</label>
+                            <select id="currency" placeholder="select currency" class="eb-select-primary">
+                                <option value="USD">USD</option>
+                                <option value="NGN">NGN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between gap-4">
+                    <button type="submit" class="w-full bg-eb-primary text-white py-3 rounded-lg mt-10 font-semibold">
+                        Create Purchase Order
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</ng-template>
