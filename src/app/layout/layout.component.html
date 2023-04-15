@@ -13,7 +13,8 @@
     </button>
 
     <div class="flex h-full overflow-hidden">
-        <aside id="default-sidebar" class="h-full z-40 w-72 transition-transform -translate-x-full sm:translate-x-0"
+        <aside id="default-sidebar"
+            class="sidebar h-full z-40 w-72 transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar">
             <!-- data-collapse-toggle="submenu-dropdown" aria-controls="submenu-dropdown" -->
 
@@ -26,7 +27,7 @@
                                 class="hover:bg-[#5B6B9E] cursor-pointer hover:text-white hover:border-l-4 hover:border-eb-danger px-5 py-3 "
                                 [class.active]="i === currentSidebarIndex">
                                 <a class="flex items-center gap-3">
-                                    <span [innerHtml]="sanitizeSvg(nav.icon)"></span>
+                                    <span class="svg-icon" [innerHtml]="sanitizeSvg(nav.icon)"></span>
                                     <span class="ml-3">{{nav?.title}}</span>
                                     <span>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -54,7 +55,7 @@
                                 <li [routerLink]="[nav.url]" routerLinkActive="active"
                                     class="hover:bg-[#5B6B9E] cursor-pointer hover:text-white hover:border-l-4 hover:border-eb-danger px-5 py-3">
                                     <a class="flex items-center gap-3">
-                                        <span [innerHtml]="sanitizeSvg(nav.icon)"></span>
+                                        <span class="svg-icon" [innerHtml]="sanitizeSvg(nav.icon)"></span>
                                         <span class="ml-3">{{nav?.title}}</span>
                                     </a>
                                 </li>
@@ -71,7 +72,7 @@
                                 routerLinkActive="active"
                                 class="hover:bg-[#5B6B9E] hover:text-white hover:border-l-4 hover:border-eb-danger px-5 py-3 animate__animated animate__backInLeft">
                                 <a class="flex items-center gap-3">
-                                    <span [innerHtml]="sanitizeSvg(nav.icon)"></span>
+                                    <span class="svg-icon" [innerHtml]="sanitizeSvg(nav.icon)"></span>
                                     <span class="ml-3">{{nav?.title}}</span>
                                 </a>
                             </li>

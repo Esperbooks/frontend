@@ -2,8 +2,38 @@
     background: #5B6B9E;
     border-left: 4px solid #E5761A;
     color: #fff;
+
+    .svg-icon {
+        fill: #fff !important
+    }
 }
 
 .subMenuActive {
     color: #fff;
+}
+
+.sidebar {
+
+    .svg-icon {
+        fill: #828DB1 !important
+    }
+
+    li:hover {
+        .svg-icon {
+            fill: #fff !important
+        }
+    }
+
+    .svg-icon {
+        svg:hover {
+            fill: #fff !important
+        }
+    }
+
+    .active {
+        .svg-icon {
+            fill: #fff !important
+        }
+    }
+
 }

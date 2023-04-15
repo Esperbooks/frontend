@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnProps } from '../../../../components/table/table.component';
+import { NewAssetsComponent } from '../new-assets/new-assets.component';
 
 @Component({
   selector: 'eb-asset-register',
@@ -76,6 +77,10 @@ export class AssetRegisterComponent implements OnInit {
         viewmore: "View More",
       }
     )
+  }
+
+  openNewAssetDialog() {
+    this.openDialog(NewAssetsComponent)
   }
 
   openDialog(templateRef: any, width = '500px'): void {
