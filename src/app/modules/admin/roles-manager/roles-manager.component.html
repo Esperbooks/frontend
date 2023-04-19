@@ -1,0 +1,67 @@
+<div class="wrapper flex justify-center">
+    <div class="flex flex-col justify-center w-[800px]">
+        <div class="form-field w-full">
+            <label for="project">Personnel</label>
+            <select id="project" class="eb-select-primary w-full">
+                <option disabled selected value="">Select a personnel</option>
+                <option value="Month">Month</option>
+            </select>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="mt-5 eb-card flex flex-col gap-7 px-5 pt-5 pb-10 w-full">
+                <h3>Available Roles</h3>
+                <div class="mt-5 flex flex-col gap-5">
+                    <ng-container *ngFor="let item of availableRoles">
+                        <div class="p-5 font-semibold rounded-lg flex gap-6 items-center"
+                            [ngClass]="item.assigned ? 'bg-[#C0C6D8] text-eb-primary' : 'bg-[#EFF1F6] text-gray-300'">
+                            <span><svg [ngClass]="item.assigned ? 'fill-eb-primary' : 'fill-gray-300'" width="24"
+                                    height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 14.75C12.5967 14.75 13.169 14.5129 13.591 14.091C14.0129 13.669 14.25 13.0967 14.25 12.5C14.25 11.9033 14.0129 11.331 13.591 10.909C13.169 10.4871 12.5967 10.25 12 10.25C11.4033 10.25 10.831 10.4871 10.409 10.909C9.98705 11.331 9.75 11.9033 9.75 12.5C9.75 13.0967 9.98705 13.669 10.409 14.091C10.831 14.5129 11.4033 14.75 12 14.75Z" />
+                                </svg>
+                            </span>
+                            <span>{{item.name}}</span>
+                        </div>
+                    </ng-container>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-3 items-center">
+                            <div class="w-5 h-5 bg-[#C0C6D8] rounded"></div>
+                            <div>
+                                <p>Unassigned</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-center">
+                            <div class="w-5 h-5 bg-[#EFF1F6] rounded"></div>
+                            <div>
+                                <p>Assigned</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 eb-card flex flex-col gap-7 px-5 pt-5 pb-10 w-full">
+                <h3>Assigned Roles</h3>
+                <div class="mt-5 flex flex-col gap-5">
+                    <ng-container *ngFor="let item of assignedRoles">
+                        <div class="p-5 font-semibold rounded-lg flex gap-6 items-center"
+                            [ngClass]="item.assigned ? 'bg-[#C0C6D8] text-eb-primary' : 'bg-[#EFF1F6] text-gray-300'">
+                            <span><svg [ngClass]="item.assigned ? 'fill-eb-primary' : 'fill-gray-300'" width="24"
+                                    height="25" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 14.75C12.5967 14.75 13.169 14.5129 13.591 14.091C14.0129 13.669 14.25 13.0967 14.25 12.5C14.25 11.9033 14.0129 11.331 13.591 10.909C13.169 10.4871 12.5967 10.25 12 10.25C11.4033 10.25 10.831 10.4871 10.409 10.909C9.98705 11.331 9.75 11.9033 9.75 12.5C9.75 13.0967 9.98705 13.669 10.409 14.091C10.831 14.5129 11.4033 14.75 12 14.75Z" />
+                                </svg>
+                            </span>
+                            <span>{{item.name}}</span>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-end mt-5">
+            <button class="btn-primary px-20">
+                Update
+            </button>
+        </div>
+    </div>
+</div>

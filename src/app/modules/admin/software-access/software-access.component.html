@@ -1,0 +1,112 @@
+<div class="wrapper flex justify-center">
+
+    <div class="flex flex-col justify-center w-[700px]">
+        <div class="text-eb-secondary-1">
+            <h1 class="text-4xl">Assign Software Access</h1>
+        </div>
+        <div class="flex justify-end">
+            <div class="form-field w-2/4 mt-5">
+                <select id="project" class="eb-select-primary w-full bg-gray-50">
+                    <option disabled selected value="">New Role/Existing Role</option>
+                    <option value="Month">Month</option>
+                </select>
+            </div>
+        </div>
+        <div class="mt-5 eb-card flex flex-col gap-7 px-5 pt-5 pb-10 w-full">
+            <div class="form-control w-full">
+                <div class="relative w-full">
+                    <label for="email" class="text-eb-secondary-3 text-sm">Email</label>
+                    <input type="email" id="email" class=" eb-input-primary" placeholder="Enter Email" required>
+                </div>
+                <div class="flex gap-3 items-center mt-2">
+                    <input id="checkbox" type="checkbox" checked
+                        class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-[#37B34A] rounded">
+                    <label for="checkbox" class="text-[#37B34A]">User found</label>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <label for="project" class="text-eb-secondary-3 text-sm">Role</label>
+                <select id="project" class="eb-select-primary w-full">
+                    <option disabled selected value="">Select</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Super Admin">Super Admin</option>
+                    <option value="Personnel Manager">Personnel Manager</option>
+                    <option value="User">User</option>
+                    <option value="Book Keeper">Book Keeper</option>
+                    <option value="Accountant">Accountant</option>
+                </select>
+            </div>
+
+            <div>
+                <h3>Team Member Details</h3>
+                <hr>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Full Name</label>
+                    <p>Tunde Ajayi</p>
+                </div>
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Email Address</label>
+                    <p>tundajay@gmail.com</p>
+                </div>
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Status</label>
+                    <p class="text-[#37B34A]">Active</p>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Job Title</label>
+                    <p>Assistant Human Resource Officer</p>
+                </div>
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Team</label>
+                    <p>Team Auxiliary</p>
+                </div>
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Reports To</label>
+                    <p>Thomas Akinwumi (Head, Human Resource)</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end mt-5">
+                <button class="btn-primary px-20">
+                    Invite
+                </button>
+            </div>
+        </div>
+        <div class="mt-5 eb-card flex flex-col gap-7 px-5 py-10 w-full">
+
+            <ng-container *ngFor="let item of checkBoxOptions">
+                <div>
+                    <h3>{{item.title}}</h3>
+                    <hr>
+                </div>
+
+                <div>
+                    <a class="m-0 underline text-eb-primary">Select All</a>
+                </div>
+
+                <div class="grid grid-cols-3 gap-7">
+                    <ng-container *ngFor="let option of item.options">
+                        <div class="flex gap-3 items-center">
+                            <input id="checkbox" type="checkbox" [checked]="option.checked"
+                                class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                            <label for="checkbox">{{option.name}}</label>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+        <div class="flex justify-end mt-5">
+            <button class="btn-primary px-20">
+                Grant Access
+            </button>
+        </div>
+    </div>
+
+</div>

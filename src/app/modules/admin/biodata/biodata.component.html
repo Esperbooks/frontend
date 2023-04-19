@@ -1,0 +1,272 @@
+<div class="wrapper flex justify-center">
+    <div class="flex flex-col justify-center w-[700px]">
+        <div class="form-field w-1/3">
+            <label for="project">Personnel</label>
+            <select id="project" class="eb-select-primary w-full">
+                <option disabled selected value="">Select a personnel</option>
+                <option value="Month">Month</option>
+            </select>
+        </div>
+        <div class="mt-5 eb-card flex flex-col gap-7 px-5 pt-5 pb-10 w-full">
+            <div class="form-field">
+                <label for="project">Onboarding Tracker</label>
+                <select id="project" class="eb-select-primary w-full">
+                    <option disabled selected value="">Reports To</option>
+                    <option value="Month">Month</option>
+                </select>
+            </div>
+            <div>
+                <h3>Account Status</h3>
+                <hr>
+            </div>
+            <div class="form-field">
+                <div class="flex items-center cursor-pointer">
+                    <div class="mr-3 text-sm font-medium text-gray-900">Active</div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" class="sr-only peer">
+                        <div
+                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                        </div>
+                        <span class="ml-3 text-sm font-medium text-gray-900">Disable</span>
+                    </label>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <div class="w-2/3">
+                    <p class="m-0">Reason For Disabling Account</p>
+                </div>
+                <div class="w-full">
+                    <select id="project" class="eb-select-primary m-0 w-full">
+                        <option disabled selected value="">Select</option>
+                        <option value="Leave Without Pay">Leave Without Pay</option>
+                        <option value="Resignation">Resignation</option>
+                        <option value="Termination">Termination</option>
+                        <option value="Retirement">Retirement</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <h3>Tick/Set As Appropriate</h3>
+                <hr>
+            </div>
+            <div class="grid grid-cols-3 gap-7">
+                <ng-container *ngFor="let item of checkBoxOptions">
+                    <div class="flex gap-3 items-center">
+                        <input id="checkbox" type="checkbox" [checked]="item.checked"
+                            class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                        <label for="checkbox">{{item.name}}</label>
+                    </div>
+                </ng-container>
+            </div>
+            <div>
+                <h3>Personal Data</h3>
+                <hr>
+            </div>
+            <div class="flex gap-6">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="firstName" class="text-eb-secondary-3 text-sm">First Name</label>
+                        <input type="text" id="firstName" class=" eb-input-primary" placeholder="Enter First Name"
+                            required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="lastName" class="text-eb-secondary-3 text-sm">Last Name</label>
+                        <input type="text" id="lastName" class=" eb-input-primary" placeholder="Enter Last Name"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="email" class="text-eb-secondary-3 text-sm">Email</label>
+                        <input type="email" id="email" class=" eb-input-primary" placeholder="Enter Email" required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="dateOfBirth" class="text-eb-secondary-3 text-sm">Date of Birth</label>
+                        <input type="date" id="dateOfBirth" class=" eb-input-primary" placeholder="Enter Date of Birth"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Phone Number</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter Phone Number" required>
+                        <span class=" absolute right-2.5 bottom-2.5 ">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_115_10570)">
+                                    <path
+                                        d="M8.79503 5.19823L5.97586 1.94407C5.65086 1.56907 5.05503 1.57073 4.67753 1.94907L2.3592 4.27157C1.6692 4.9624 1.4717 5.98823 1.87086 6.81073C4.25555 11.7482 8.23757 15.7358 13.1717 18.1274C13.9934 18.5266 15.0184 18.3291 15.7084 17.6382L18.0484 15.2941C18.4275 14.9149 18.4284 14.3157 18.05 13.9907L14.7834 11.1866C14.4417 10.8932 13.9109 10.9316 13.5684 11.2749L12.4317 12.4132C12.3735 12.4742 12.2969 12.5144 12.2137 12.5277C12.1304 12.5409 12.0451 12.5265 11.9709 12.4866C10.1129 11.4166 8.57169 9.87343 7.5042 8.01407C7.46422 7.93969 7.44974 7.85426 7.46299 7.77086C7.47624 7.68747 7.51647 7.61073 7.57753 7.5524L8.71086 6.41823C9.0542 6.07323 9.0917 5.5399 8.79503 5.1974V5.19823Z"
+                                        stroke="#545454" stroke-width="1.4" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_115_10570">
+                                        <rect width="20" height="20" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </span>
+                    </div>
+                </div>
+                <div class="form-field w-full">
+                    <label for="project" class="text-eb-secondary-3 text-sm">Marital Status</label>
+                    <select id="project" class="eb-select-primary w-full">
+                        <option disabled selected value="">Select</option>
+                        <option value="Month">Month</option>
+                    </select>
+                </div>
+                <div class="form-field w-full">
+                    <label for="project" class="text-eb-secondary-3 text-sm">Gender</label>
+                    <select id="project" class="eb-select-primary w-full">
+                        <option disabled selected value="">Select</option>
+                        <option value="Month">Month</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="form-field w-full">
+                    <label for="project" class="text-eb-secondary-3 text-sm">Department/Team</label>
+                    <select id="project" class="eb-select-primary w-full">
+                        <option disabled selected value="">Select</option>
+                        <option value="Month">Month</option>
+                    </select>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Job Title</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter Phone Number" required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-3 items-center">
+                <input id="checkbox" type="checkbox" checked
+                    class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                <label for="checkbox">Manager</label>
+            </div>
+            <div>
+                <h3>Vacation Plan</h3>
+                <hr>
+            </div>
+            <div class="flex gap-6">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Annual Leave</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter no of days" required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Compassionate Leave</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter no of days" required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Paternity Leave</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter no of days" required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-6">
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Maternity Leave</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter no of days" required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Sick Leave</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter no of days" required>
+                    </div>
+                </div>
+                <div class="form-control w-full">
+                    <div class="relative w-full">
+                        <label for="phoneNumber" class="text-eb-secondary-3 text-sm">Leave Without Pay</label>
+                        <input type="tel" id="phoneNumber" class=" eb-input-primary pr-10"
+                            placeholder="Enter no of days" required>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-field w-full pt-5">
+                    <label for="project" class="text-eb-secondary-3 text-sm">Add Backup</label>
+                    <select id="project" class="eb-select-primary w-full">
+                        <option disabled selected value="">Select</option>
+                        <option value="Month">Month</option>
+                    </select>
+                </div>
+                <hr class="mt-8">
+            </div>
+            <div class="flex gap-6">
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Surbordinate List</label>
+                    <p>Alex Ferguson, Denson Monreo, Tunde Akinyemi, Onkojo Iweala</p>
+                </div>
+                <div class="relative w-full">
+                    <label class="text-eb-secondary-3 text-sm">Peer List</label>
+                    <p>Titi Adetoun</p>
+                </div>
+            </div>
+            <div>
+
+                <form>
+                    <div class="flex">
+
+                        <div class="relative w-full">
+                            <input type="search" id="search-dropdown"
+                                class="block p-2.5 w-full z-20 text-sm eb-input-primary mt-0"
+                                placeholder="Enter job title" required>
+
+                            <button type="submit"
+                                class="absolute h-10 text-eb-primary flex gap-4 top-0 right-0 p-2.5 text-sm font-semibold rounded-r-lg border border-eb-primary focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+
+                                <svg width="20" height="19" viewBox="0 0 25 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.53402 9.11719C4.58823 9.35518 3.7619 9.93035 3.21028 10.7346C2.65865 11.5389 2.4197 12.5169 2.53833 13.485C2.65695 14.453 3.12499 15.3444 3.85449 15.9917C4.58399 16.639 5.52475 16.9976 6.50002 17.0002H7.50002M12.5 12.0002V21.0002V12.0002ZM12.5 12.0002L10 14.0002L12.5 12.0002ZM12.5 12.0002L15 14.0002L12.5 12.0002Z"
+                                        stroke="#20367F" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M16.33 7.13772C15.9882 5.78429 15.1446 4.61146 13.9702 3.85698C12.7957 3.10249 11.3783 2.82281 10.0053 3.07462C8.63228 3.32643 7.40638 4.0909 6.5761 5.21306C5.74582 6.33521 5.3733 7.73109 5.53404 9.11772C5.53404 9.11772 5.68704 9.99972 6.00004 10.4997"
+                                        stroke="#20367F" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M17.5 17C18.206 16.9995 18.904 16.8495 19.5479 16.5599C20.1917 16.2702 20.767 15.8475 21.2357 15.3195C21.7045 14.7915 22.0561 14.1702 22.2674 13.4965C22.4787 12.8229 22.545 12.1121 22.4618 11.4109C22.3786 10.7098 22.1479 10.0343 21.7848 9.42874C21.4217 8.82321 20.9345 8.30145 20.3552 7.89778C19.776 7.49412 19.1178 7.21772 18.424 7.08676C17.7302 6.9558 17.0166 6.97327 16.33 7.138L15 7.5"
+                                        stroke="#20367F" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
+                                Attach File
+
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="flex justify-end mt-5">
+            <button class="btn-primary px-20">
+                Update
+            </button>
+        </div>
+    </div>
+</div>

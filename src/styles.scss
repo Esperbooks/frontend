@@ -53,6 +53,24 @@ html, body {
     @apply bg-gray-300 border-gray-300 text-gray-100 cursor-not-allowed;
 }
 
+.btn-danger {
+    @apply bg-eb-danger py-2.5 px-5 border rounded-lg border-eb-danger font-semibold text-white hover:scale-105;
+    transition: transform .2s; /* Animation */
+}
+
+.btn-danger:disabled {
+    @apply bg-gray-300 border-gray-300 text-gray-100 cursor-not-allowed;
+}
+
+.btn-danger-alt {
+    @apply bg-transparent py-2.5 px-5 border rounded-lg border-eb-danger font-semibold text-eb-danger hover:scale-105;
+    transition: transform .2s; /* Animation */
+}
+
+.btn-danger-alt:disabled {
+    @apply bg-gray-300 border-gray-300 text-gray-100 cursor-not-allowed;
+}
+
 .btn-primary-alt {
     @apply bg-transparent border-eb-primary text-eb-primary py-2.5 px-5 border rounded-lg font-semibold hover:scale-105;
     transition: transform .2s; /* Animation */
@@ -74,3 +92,9 @@ input {
     @apply focus:ring-0;
 }
   
+
+.eb-card {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 13px rgba(32, 54, 127, 0.25);
+    border-radius: 8px;
+}
