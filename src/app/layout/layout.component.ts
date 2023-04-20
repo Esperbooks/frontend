@@ -65,6 +65,8 @@ export class LayoutComponent implements OnInit {
     if (this.sidebarNavigation.length > 0) {
       const sidebarUrls: string[] = this.sidebarNavigation.map(x => x?.url) as string[];
 
+      console.log({ sidebarUrls })
+
       this.currentSidebarIndex = _.findIndex(sidebarUrls, (url: string) => url.includes(sidebarRoute))
 
       const currentSideBar = this.sidebarNavigation[this.currentSidebarIndex];
