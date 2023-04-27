@@ -1,1 +1,17 @@
-<p>establish works!</p>
+<div class="wrapper">
+    <div class="p-5">
+        <div class="text-eb-secondary-1">
+            <h1 class="text-3xl">Project
+                List</h1>
+
+            <button [routerLink]="['/project-management/establish/new-project']" class="mt-10 btn-primary px-20">
+                New Project
+            </button>
+        </div>
+        <div class="mt-5">
+
+
+            <eb-table [columnProps]="leaveRequestProps" [rows]="leaveRequestRows" [options]="tableOptions"></eb-table>
+        </div>
+    </div>
+</div>

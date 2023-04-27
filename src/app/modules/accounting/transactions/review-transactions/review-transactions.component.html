@@ -29,41 +29,44 @@
 
             <div class="">
                 <eb-table [enableCheckbox]="true" [columnProps]="transactionProps" [rows]="transactionRows">
-                    <ng-container *ngIf="transactionRows.length < 1">
-                        <div class="m-auto w-full">
-                            <div class="flex items-center justify-center">
-                                <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.834 3.66602H30.2507L38.5006 11.916V34.8327" stroke="#A4A4A4"
-                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M5.5 37.5827V11.916C5.5 11.1867 5.78973 10.4872 6.30546 9.97147C6.82118 9.45575 7.52065 9.16602 8.25 9.16602H26.1287C26.4203 9.16627 26.6999 9.28233 26.906 9.48868L32.6773 15.26C32.7799 15.3625 32.8613 15.4843 32.9167 15.6183C32.972 15.7523 33.0004 15.896 33 16.041V37.5827C33 38.312 32.7103 39.0115 32.1945 39.5272C31.6788 40.0429 30.9793 40.3327 30.25 40.3327H8.25C7.52065 40.3327 6.82118 40.0429 6.30546 39.5272C5.78973 39.0115 5.5 38.312 5.5 37.5827Z"
-                                        stroke="#A4A4A4" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path
-                                        d="M25.666 9.16602V15.3993C25.666 15.6911 25.7819 15.9709 25.9882 16.1772C26.1945 16.3835 26.4743 16.4993 26.766 16.4993H32.9993"
-                                        stroke="#A4A4A4" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                                <button>
-                                    Click to <span class="text-eb-primary underline">
-                                        add Purchase Order
-                                    </span>
-                                </button>
+                    <div role="footer">
+                        <ng-container *ngIf="transactionRows.length < 1">
+                            <div class="m-auto w-full">
+                                <div class="flex items-center justify-center">
+                                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.834 3.66602H30.2507L38.5006 11.916V34.8327" stroke="#A4A4A4"
+                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M5.5 37.5827V11.916C5.5 11.1867 5.78973 10.4872 6.30546 9.97147C6.82118 9.45575 7.52065 9.16602 8.25 9.16602H26.1287C26.4203 9.16627 26.6999 9.28233 26.906 9.48868L32.6773 15.26C32.7799 15.3625 32.8613 15.4843 32.9167 15.6183C32.972 15.7523 33.0004 15.896 33 16.041V37.5827C33 38.312 32.7103 39.0115 32.1945 39.5272C31.6788 40.0429 30.9793 40.3327 30.25 40.3327H8.25C7.52065 40.3327 6.82118 40.0429 6.30546 39.5272C5.78973 39.0115 5.5 38.312 5.5 37.5827Z"
+                                            stroke="#A4A4A4" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M25.666 9.16602V15.3993C25.666 15.6911 25.7819 15.9709 25.9882 16.1772C26.1945 16.3835 26.4743 16.4993 26.766 16.4993H32.9993"
+                                            stroke="#A4A4A4" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <button>
+                                        Click to <span class="text-eb-primary underline">
+                                            add Purchase Order
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <div class="mt-2">
+                            <div class="flex items-center">
+                                <input id="checked-checkbox" type="checkbox" value=""
+                                    class="w-6 h-6 checked:bg-eb-primary focus:ring-0 bg-gray-100 border-gray-300 rounded">
+                                <label for="checked-checkbox" class="ml-2 text-base font-medium ">Send to Vendor</label>
+                            </div>
+                            <div class="mt-5">
+                                <button class="underline text-eb-primary" (click)="openDialog(addPurchaseOrderTemplate)"
+                                    [class.text-gray-500]="transactionRows.length < 1">Create Transactions</button>
                             </div>
                         </div>
-                    </ng-container>
-                    <div class="mt-2">
-                        <div class="flex items-center">
-                            <input id="checked-checkbox" type="checkbox" value=""
-                                class="w-6 h-6 checked:bg-eb-primary focus:ring-0 bg-gray-100 border-gray-300 rounded">
-                            <label for="checked-checkbox" class="ml-2 text-base font-medium ">Send to Vendor</label>
-                        </div>
-                        <div class="mt-5">
-                            <button class="underline text-eb-primary" (click)="openDialog(addPurchaseOrderTemplate)"
-                                [class.text-gray-500]="transactionRows.length < 1">Create Transactions</button>
-                        </div>
                     </div>
+
                 </eb-table>
 
                 <div class="mt-5 flex justify-end">

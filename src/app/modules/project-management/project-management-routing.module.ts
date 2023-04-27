@@ -10,6 +10,9 @@ import { KanbanComponent } from './produce/kanban/kanban.component';
 import { ChangeManagementComponent } from './evaluate/change-management/change-management.component';
 import { DashboardComponent } from './evaluate/dashboard/dashboard.component';
 import { ReleaseComponent } from './release/release.component';
+import { NewProjectComponent } from './establish/new-project/new-project.component';
+import { NewDeliverableComponent } from './specify/mdr-builder/new-deliverable/new-deliverable.component';
+import { NewKanbanComponent } from './produce/kanban/new-kanban/new-kanban.component';
 
 const routes: Routes = [
   {
@@ -19,7 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'establish',
-    component: EstablishComponent
+    component: EstablishComponent,
+  },
+  {
+    path: 'establish/new-project',
+    component: NewProjectComponent
   },
   {
     path: 'specify',
@@ -27,6 +34,10 @@ const routes: Routes = [
       {
         path: 'mdr-builder',
         component: MdrBuilderComponent
+      },
+      {
+        path: 'mdr-builder/new-deliverable',
+        component: NewDeliverableComponent
       },
       {
         path: 'schedule-developer',
@@ -52,6 +63,10 @@ const routes: Routes = [
       {
         path: 'kanban',
         component: KanbanComponent
+      },
+      {
+        path: 'kanban/new-kanban',
+        component: NewKanbanComponent
       }
     ]
   },

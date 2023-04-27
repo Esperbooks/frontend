@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 export interface ColumnProps {
   header: string;
@@ -10,6 +11,7 @@ export interface ColumnProps {
   cssMethod?: {
     (propData?: string): string;
   };
+  html?: boolean;
 }
 
 export interface ButtonConfigInterface {
@@ -43,6 +45,8 @@ export class TableComponent implements OnInit {
   @Input() options: TableOptionsInterface[] = [];
   @Input() editBtn = false;
   @Input() deleteBtn = false;
+  @Input() customStyle!: string;
+  @Input() showPagination = true;
 
   @Output() rowClicked: EventEmitter<any> = new EventEmitter<any>();
   @Output() selectedTableData: EventEmitter<any> = new EventEmitter<any>();
@@ -52,10 +56,17 @@ export class TableComponent implements OnInit {
   isAllChecked = false;
   selectedData: any[] = [];
 
+  constructor(
+    private sanitizer: DomSanitizer
+  ) {
+
+  }
+
   ngOnInit(): void {
     if (this.enableCheckbox) {
       this.mapDataWithCheckbox();
     }
+    console.log(this.columnProps)
   }
 
   rowClick(data: any) {
@@ -81,6 +92,10 @@ export class TableComponent implements OnInit {
       this.isAllChecked = this.rows.map(x => x.selected).every(x => x === true);
     }
     this.selectedTableData.emit(this.selectedData);
+  }
+
+  sanitizeSvg(svg: any) {
+    return this.sanitizer.bypassSecurityTrustHtml(svg);
   }
 
 }

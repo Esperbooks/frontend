@@ -1,1 +1,211 @@
-<p>dashboard works!</p>
+<div class="wrapper">
+    <div class="form-field">
+        <!-- <label for="project" class="block mb-2 text-sm font-medium text-gray-900 ">Select Project</label> -->
+        <select id="project"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block w-2/6 p-2.5">
+            <option selected disabled>Select Project</option>
+        </select>
+    </div>
+    <form class="mt-10">
+        <div class="flex items-center mb-4">
+            <input id="default-radio-1" type="radio" value="" name="default-radio"
+                class="w-4 h-4 outline-none bg-gray-100 border-gray-300 checked:bg-blue-600">
+            <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Global
+                View</label>
+        </div>
+        <div class="flex items-center">
+            <input checked id="default-radio-2" type="radio" value="" name="default-radio"
+                class="w-4 h-4 outline-none bg-gray-100 border-gray-300 checked:bg-blue-600">
+            <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Project
+                View</label>
+        </div>
+    </form>
+    <div class="my-5">
+        <div class="flex items-end justify-between">
+            <div class="flex gap-5">
+                <div>
+                    <button id="states-button" data-dropdown-toggle="dropdown-states" class="btn-primary flex gap-3"
+                        type="button">
+
+                        Options
+                        <svg class="hover: fill-eb-primary" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 17L15.5 12L10.5 7V17Z" fill="white" />
+                        </svg>
+                    </button>
+                    <div id="dropdown-states"
+                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                        <ul class="text-sm " aria-labelledby="states-button">
+                            <li>
+                                <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                                    data-dropdown-placement="right-start" type="button"
+                                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 ">Export
+                                    PDF/XLS<svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></button>
+                                <div id="doubleDropdown"
+                                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                        aria-labelledby="doubleDropdownButton">
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">PDF</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Excel</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 text-sm hover:bg-eb-primary-4 hover:text-eb-primary">
+                                    <div class="inline-flex items-center">
+                                        Journal/Ledger
+                                    </div>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="flex flex-col gap-5">
+                <div class="text-eb-secondary-1 text-end">
+                    <h1 class="font-semibold text-4xl">Dashboard</h1>
+                    <h1 class="text-xl">Monday, 11th October, 2022</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="grid grid-cols-12 gap-5 w-full">
+        <div class="col-span-5 eb-card w-full p-10 flex flex-col gap-20">
+            <div class="flex items-center w-full">
+                <div class="progress-label font-semibold w-3/12">
+                    <label>Establish</label>
+                </div>
+                <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                    <div class="bg-eb-primary h-5 rounded-full" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="flex items-center w-full">
+                <div class="progress-label font-semibold w-3/12">
+                    <label>Specify</label>
+                </div>
+                <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                    <div class="bg-eb-primary h-5 rounded-full" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="flex items-center w-full">
+                <div class="progress-label font-semibold w-3/12">
+                    <label>Produce</label>
+                </div>
+                <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                    <div class="bg-eb-primary h-5 rounded-full" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="flex items-center w-full">
+                <div class="progress-label font-semibold w-3/12">
+                    <label>Evaluate</label>
+                </div>
+                <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                    <div class="bg-eb-primary h-5 rounded-full" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="flex items-center w-full">
+                <div class="progress-label font-semibold w-3/12">
+                    <label>Release</label>
+                </div>
+                <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                    <div class="bg-eb-primary h-5 rounded-full" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex items-center gap-10">
+                    <p>Activity Exhausted</p>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9" cy="9" r="9" fill="#20367F" />
+                    </svg>
+                </div>
+                <div class="flex mt-3 items-center gap-10">
+                    <p>Activity Remaining</p>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9" cy="9" r="9" fill="#BCC3D9" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-7 h-max flex flex-col gap-5">
+            <div>
+                <eb-table [rows]="financialTablwRow" [columnProps]="financialTableProps" heading="Financials"
+                    [showPagination]="false"></eb-table>
+            </div>
+            <div class="grid grid-cols-12 h-max gap-3 text-sm">
+                <div class="col-span-7">
+                    <eb-table [rows]="paymentMilestonesTablwRow" [columnProps]="paymentMilestonesTableProps"
+                        heading="Payment Milestones" [showPagination]="false"></eb-table>
+                </div>
+                <div class=" col-span-5 eb-card w-full p-2.5 flex flex-col gap-5">
+                    <div>
+                        <p>Project Health</p>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div class="progress-label font-semibold w-3/12">
+                            <label>Cost</label>
+                        </div>
+                        <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                            <div class="bg-red-600 h-5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div class="progress-label font-semibold w-3/12">
+                            <label>Schedule</label>
+                        </div>
+                        <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                            <div class="bg-yellow-600 h-5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div class="progress-label font-semibold w-3/12">
+                            <label>Resource</label>
+                        </div>
+                        <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                            <div class="bg-yellow-600 h-5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div class="progress-label font-semibold w-3/12">
+                            <label>Risk</label>
+                        </div>
+                        <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                            <div class="bg-red-600 h-5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div class="progress-label font-semibold w-3/12">
+                            <label>Quality</label>
+                        </div>
+                        <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                            <div class="bg-green-600 h-5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="flex items-center w-full">
+                        <div class="progress-label font-semibold w-3/12">
+                            <label>Scope</label>
+                        </div>
+                        <div class="w-9/12 bg-gray-200 rounded-full h-5 dark:bg-gray-700">
+                            <div class="bg-green-600 h-5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

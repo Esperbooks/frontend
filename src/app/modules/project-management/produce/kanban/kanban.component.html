@@ -1,1 +1,145 @@
-<p>kanban works!</p>
+<div class="wrapper">
+    <div class="form-field">
+        <!-- <label for="project" class="block mb-2 text-sm font-medium text-gray-900 ">Select Project</label> -->
+        <select id="project"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block w-2/6 p-2.5">
+            <option selected disabled>Select Project</option>
+            <option *ngFor="let project of projectOptions" [value]="project">{{project}}</option>
+        </select>
+    </div>
+    <div class="mt-10">
+        <div class="flex items-center mb-4">
+            <input id="default-radio-1" type="radio" value="" name="default-radio"
+                class="w-4 h-4 outline-none bg-gray-100 border-gray-300 checked:bg-blue-600">
+            <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Global
+                View</label>
+        </div>
+        <div class="flex items-center">
+            <input checked id="default-radio-2" type="radio" value="" name="default-radio"
+                class="w-4 h-4 outline-none bg-gray-100 border-gray-300 checked:bg-blue-600">
+            <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Project
+                View</label>
+        </div>
+    </div>
+    <div class="mt-5">
+        <div class="flex items-center justify-between">
+            <div class="flex gap-5">
+                <div>
+                    <button id="states-button" data-dropdown-toggle="dropdown-states" class="btn-primary flex gap-3"
+                        type="button">
+
+                        Options
+                        <svg class="hover: fill-eb-primary" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 17L15.5 12L10.5 7V17Z" fill="white" />
+                        </svg>
+                    </button>
+                    <div id="dropdown-states"
+                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                        <ul class="text-sm " aria-labelledby="states-button">
+                            <li>
+                                <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                                    data-dropdown-placement="right-start" type="button"
+                                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 ">Export
+                                    PDF/XLS<svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></button>
+                                <div id="doubleDropdown"
+                                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                        aria-labelledby="doubleDropdownButton">
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">PDF</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Excel</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button type="button"
+                                    class="inline-flex w-full px-4 py-2 text-sm hover:bg-eb-primary-4 hover:text-eb-primary">
+                                    <div class="inline-flex items-center">
+                                        Journal/Ledger
+                                    </div>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="flex justify-end items-center gap-3 text-sm">
+                <div>
+                    <select id="project"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                        <option selected disabled>Work Resource Name</option>
+                        <option *ngFor="let project of projectOptions" [value]="project">{{project}}</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="project"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                        <option selected disabled>Row per page</option>
+                        <option *ngFor="let project of projectOptions" [value]="project">{{project}}</option>
+                    </select>
+                </div>
+                <div class="form-field ">
+                    <select id="project"
+                        class="bg-gray-50 border w-32 border-gray-300 text-gray-900 text-sm rounded-lg h-10 block p-2.5">
+                        <option value="Week">Week</option>
+                        <option selected value="This Month">This Month</option>
+                    </select>
+                </div>
+                <p>From</p>
+                <div class="form-field">
+                    <input type="date" class="h-10 text-sm rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900"
+                        name="" id="">
+                </div>
+                <p>To</p>
+                <div class="form-field">
+                    <input type="date" class="h-10 text-sm rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900"
+                        name="" id="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="my-2 eb-card p-10">
+            <h3>Total Hours</h3>
+            <div class="mt-2 flex gap-6">
+                <div class="flex gap-3 items-center w-full">
+                    <input id="checkbox" type="checkbox"
+                        class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                    <label class="w-36" for="checkbox">Not Started</label>
+                    <input type="text" class="eb-input-primary mt-0 w-full" placeholder="total hours">
+                </div>
+                <div class="flex gap-3 items-center w-full">
+                    <input id="checkbox" type="checkbox"
+                        class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                    <label class="w-36" for="checkbox">In - Progress</label>
+                    <input type="text" class="eb-input-primary mt-0" placeholder="number">
+                </div>
+                <div class="flex gap-3 items-center w-full">
+                    <input id="checkbox" type="checkbox"
+                        class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                    <label class="w-36" for="checkbox">Completed</label>
+                    <input type="text" class="eb-input-primary mt-0" placeholder="number">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="">
+            <eb-table [enableCheckbox]="true" [columnProps]="transactionProps" [rows]="transactionRows">
+            </eb-table>
+        </div>
+    </div>
+</div>
