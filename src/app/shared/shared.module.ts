@@ -23,7 +23,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ComponentsModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class SharedModule { }

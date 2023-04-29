@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ColumnProps } from '../../../../components/table/table.component';
+import { GanttItem } from '@worktile/gantt';
 
 @Component({
   selector: 'eb-job-board',
@@ -19,6 +20,17 @@ export class JobBoardComponent implements OnInit {
     "Mactech Ltd",
     "Postus Ltd",
   ]
+
+  items: GanttItem[] = [
+    {
+      id: '000000',
+      title: 'Task 0',
+      children: [
+        { id: '000000-01', title: 'Task 0-1' },
+        { id: '000000-02', title: 'Task 0-2' }
+      ]
+    }
+  ];
 
   transactionProps: ColumnProps[] = [
     {

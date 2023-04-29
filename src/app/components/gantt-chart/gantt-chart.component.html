@@ -1,0 +1,31 @@
+<div class="eb-card w-full h-screen">
+    <ngx-gantt #gantt [items]="items" [baselineItems]="baselineItems" [viewType]="viewType" [async]="true"
+        [childrenResolve]="childrenResolve" [draggable]="true" [linkable]="true" [selectable]="true" [multiple]="true"
+        [viewOptions]="viewOptions" [showToolbar]="isShowToolbarChecked" [toolbarOptions]="toolbarOptions"
+        (barClick)="barClick($event)" (viewChange)="viewChange($event)" (lineClick)="lineClick($event)"
+        (dragMoved)="dragMoved($event)" (dragEnded)="dragEnded($event)" (selectedChange)="selectedChange($event)"
+        (linkDragEnded)="linkDragEnded($event)">
+        <ngx-gantt-table>
+            <ngx-gantt-column name="Sample 1" width="140px">
+                <ng-template #cell let-item="item">
+                    {{ item.start * 1000 | date : 'yyyy-MM-dd' }}
+                </ng-template>
+            </ngx-gantt-column>
+            <ngx-gantt-column name="Sample 2" width="180px" [showExpandIcon]="true">
+                <ng-template #cell let-item="item"> {{ item.title }} </ng-template>
+            </ngx-gantt-column>
+            <ngx-gantt-column name="Sample 3" width="140px">
+                <ng-template #cell let-item="item">
+                    {{ item.end * 1000 | date : 'yyyy-MM-dd' }}
+                </ng-template>
+            </ngx-gantt-column>
+        </ngx-gantt-table>
+
+        <ng-template #bar let-item="item">
+            <span style="color: #fff">&nbsp;&nbsp;{{ item.title }} </span>
+        </ng-template>
+        <!-- <ng-template #toolbar>
+        <span>test</span>
+      </ng-template> -->
+    </ngx-gantt>
+</div>
