@@ -1,122 +1,83 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ColumnProps } from '../../../../components/table/table.component';
-import { GanttItem } from '@worktile/gantt';
 
 @Component({
   selector: 'eb-job-board',
   templateUrl: './job-board.component.html',
   styleUrls: ['./job-board.component.scss']
 })
-export class JobBoardComponent implements OnInit {
+export class JobBoardComponent {
   projectOptions: string[] = ["Alphonse", "New Delhi"]
-
-  @ViewChild('addPurchaseOrderTemplate') addPurchaseOrderTemplate!: TemplateRef<any>;
-  @ViewChild('paymentTermTemplate') paymentTermTemplate!: TemplateRef<any>;
-  currentColumn!: any;
 
   supplierOptions = [
     "Mactech Ltd",
     "Postus Ltd",
   ]
 
-  items: GanttItem[] = [
+  tableColumnProps: ColumnProps[] = [
     {
-      id: '000000',
-      title: 'Task 0',
-      children: [
-        { id: '000000-01', title: 'Task 0-1' },
-        { id: '000000-02', title: 'Task 0-2' }
-      ]
+      header: 'Not Started',
+      prop: 'notStarted'
+    },
+    {
+      header: 'In Progress',
+      prop: 'inProgress'
+    },
+    {
+      header: 'In-House Review',
+      prop: 'inHouseReview'
+    },
+    {
+      header: 'Customer Review',
+      prop: 'customerReview'
+    },
+    {
+      header: 'Completed',
+      prop: 'completed'
     }
   ];
 
-  transactionProps: ColumnProps[] = [
-    {
-      header: "Activity ID",
-      prop: 'ActivityID',
-      cssClass: 'underline text-eb-primary font-semibold cursor-pointer',
-      clickAction: () => this.router.navigateByUrl('/project-management/produce/kanban/new-kanban')
+  tableData: any[] = new Array(3).fill({
+    notStarted: {
+      file: null,
+      reviewer: 'Festus Williams',
+      checked: false
     },
-    {
-      header: "Activity Name",
-      prop: 'ActivityName'
+    inProgress: {
+      file: null,
+      reviewer: 'Festus Williams',
+      checked: false
     },
-    {
-      header: "Planned Start",
-      prop: 'PlannedStart'
+    inHouseReview: {
+      file: null,
+      reviewer: 'Festus Williams',
+      checked: false
     },
-    {
-      header: "Planned End",
-      prop: 'PlannedEnd'
+    customerReview: {
+      file: null,
+      reviewer: 'Festus Williams',
+      checked: false
     },
-    {
-      header: "Hours",
-      prop: 'Hours'
+    completed: {
+      file: null,
+      reviewer: 'Festus Williams',
+      checked: false
     },
-    {
-      header: "Priority",
-      prop: 'Priority'
-    },
-    {
-      header: "Phase",
-      prop: 'Phase'
-    },
-    {
-      header: "Traffic Lights",
-      prop: 'TrafficLights',
-      html: true
-    },
-    {
-      header: "Resource",
-      prop: 'Resource'
-    },
-  ]
+  })
 
-  transactionRows: any[] = []
-
-  ngOnInit(): void {
-    this.getTransactionRows();
+  selectAllColumn(prop: string) {
+    const isAllChecked = this.tableData.every(x => x[prop].checked === true);
+    this.tableData.forEach(data => {
+      data[prop].checked = !isAllChecked;
+    })
   }
 
-  constructor(
-    private dialog: MatDialog,
-    private router: Router
-  ) {
-
+  selectColumn(prop: string, index: number) {
+    this.tableData[index][prop].checked = !this.tableData[index][prop].checked;
   }
 
-  getTransactionRows() {
-    this.transactionRows = new Array(10).fill(
-      {
-        ActivityID: "xxxxx-100",
-        ActivityName: "Cell Content 1",
-        PlannedStart: "12/10/2022",
-        PlannedEnd: "12/01/2023",
-        Hours: "4",
-        Priority: "Critical High",
-        Phase: "Nil",
-        TrafficLights: `
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10" cy="10" r="10" fill="#20367F"/>
-        </svg>
-        `,
-        Resource: "Nil",
-      }
-    )
-    this.transactionRows = this.transactionRows.map((x, i) => { return { ...x, ...{ index: i + 1 } } })
-  }
-
-  openDialog(templateRef: any, width = '500px'): void {
-    const dialogRef = this.dialog.open(templateRef, {
-      panelClass: 'eb-dialog-container',
-      width,
-      autoFocus: false
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      // console.log(result);
-    });
+  isAllColumnChecked(prop: string) {
+    const propData = this.tableData.map(x => x[prop]);
+    return propData.every(data => data.checked === true);
   }
 }

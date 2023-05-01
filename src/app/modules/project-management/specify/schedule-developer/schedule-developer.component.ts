@@ -11,6 +11,8 @@ import { ColumnProps } from '../../../../components/table/table.component';
 export class ScheduleDeveloperComponent implements OnInit {
   projectOptions: string[] = ["Alphonse", "New Delhi"]
 
+  ganttChartMode = false;
+
   @ViewChild('addPurchaseOrderTemplate') addPurchaseOrderTemplate!: TemplateRef<any>;
   @ViewChild('paymentTermTemplate') paymentTermTemplate!: TemplateRef<any>;
   currentColumn!: any;
@@ -96,5 +98,9 @@ export class ScheduleDeveloperComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       // console.log(result);
     });
+  }
+
+  toggleViewMode() {
+    this.ganttChartMode = !this.ganttChartMode
   }
 }

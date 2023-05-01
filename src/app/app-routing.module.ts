@@ -7,11 +7,6 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 
 const routes: Routes = [
   {
-    path: '',
-    component: LayoutComponent,
-    loadChildren: () => import('./layout/layout.module').then(mod => mod.LayoutModule)
-  },
-  {
     path: 'login',
     component: AuthComponent,
     data: { auth_type: 'login' }
@@ -20,6 +15,11 @@ const routes: Routes = [
     path: 'signup',
     component: AuthComponent,
     data: { auth_type: 'signup' }
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    loadChildren: () => import('./layout/layout.module').then(mod => mod.LayoutModule)
   },
   { path: '**', component: PageNotFoundComponent },
 ];

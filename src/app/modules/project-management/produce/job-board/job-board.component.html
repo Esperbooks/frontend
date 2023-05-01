@@ -77,34 +77,32 @@
 
             <div class="flex justify-end items-center gap-3 text-sm">
                 <div>
-                    <select id="project"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                    <select id="project" class="eb-select-primary">
                         <option selected disabled>Select Activity</option>
                         <option *ngFor="let project of projectOptions" [value]="project">{{project}}</option>
                     </select>
                 </div>
                 <div>
-                    <select id="project"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
+                    <select id="project" class="eb-select-primary">
                         <option selected disabled>Row per page</option>
                         <option *ngFor="let project of projectOptions" [value]="project">{{project}}</option>
                     </select>
                 </div>
                 <div class="form-field ">
                     <select id="project"
-                        class="bg-gray-50 border w-32 border-gray-300 text-gray-900 text-sm rounded-lg h-10 block p-2.5">
+                        class="bg-gray-50 border w-32 border-gray-300 text-gray-900 text-sm rounded-lg h-12 block p-2.5">
                         <option value="Week">Week</option>
                         <option selected value="This Month">This Month</option>
                     </select>
                 </div>
                 <p>From</p>
                 <div class="form-field">
-                    <input type="date" class="h-10 text-sm rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900"
+                    <input type="date" class="h-12 text-sm rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900"
                         name="" id="">
                 </div>
                 <p>To</p>
                 <div class="form-field">
-                    <input type="date" class="h-10 text-sm rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900"
+                    <input type="date" class="h-12 text-sm rounded-lg p-3 g-gray-50 border-gray-300 text-gray-900"
                         name="" id="">
                 </div>
             </div>
@@ -112,8 +110,57 @@
         </div>
 
 
-        <div class="">
-            <eb-gantt-chart></eb-gantt-chart>
+        <div class="eb-card mt-3 p-5">
+            <table class="w-full text-left text-sm relative">
+                <thead class=" text-eb-primary bg-eb-primary-4"
+                    [ngClass]="tableColumnProps.length < 1 ? 'bg-eb-primary-4 text-gray-400' : ''">
+                    <tr>
+                        <th *ngFor="let data of tableColumnProps; let i = index;" scope="col"
+                            class="px-6 py-3 min-w-max">
+                            <div class="flex items-center gap-3">
+                                <input id="checkbox-header" (change)="selectAllColumn(data.prop)" type="checkbox"
+                                    [checked]="isAllColumnChecked(data.prop)"
+                                    class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                                <label for="checkbox-header" class="sr-only">checkbox</label>
+                                <span>
+                                    {{data.header}}
+                                </span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of tableData; let i = index;" class="border-b">
+                        <td *ngFor="let item of tableColumnProps; let $i = index" class="border"
+                            [ngClass]="$i === 0 ? 'border-l-0' : ''"
+                            [ngClass]="$i === tableColumnProps.length - 1 ? 'border-r-0' : ''">
+                            <div class="flex items-center gap-3 p-6">
+                                <div>
+                                    <input id="checkbox-header" (change)="selectColumn(item.prop, i)" type="checkbox"
+                                        [checked]="data[item.prop].checked"
+                                        class="w-6 h-6 bg-gray-100 border-gray-300 focus:ring-0 checked:bg-eb-primary rounded">
+                                    <label for="checkbox-header" class="sr-only">checkbox</label>
+                                </div>
+                                <div class="flex flex-col gap-3 py-3">
+                                    <svg class="ml-3" width="48" height="60" viewBox="0 0 48 60" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M46.7508 15.1648L32.4602 0.874219C32.0617 0.475781 31.5238 0.25 30.9594 0.25H2.75C1.57461 0.25 0.625 1.19961 0.625 2.375V57.625C0.625 58.8004 1.57461 59.75 2.75 59.75H45.25C46.4254 59.75 47.375 58.8004 47.375 57.625V16.6723C47.375 16.1078 47.1492 15.5633 46.7508 15.1648ZM42.4742 17.6484H29.9766V5.15078L42.4742 17.6484ZM42.5938 54.9688H5.40625V5.03125H25.4609V19.375C25.4609 20.1147 25.7548 20.8241 26.2778 21.3472C26.8009 21.8702 27.5103 22.1641 28.25 22.1641H42.5938V54.9688ZM23.4688 37.0391H11.25C10.9578 37.0391 10.7188 37.2781 10.7188 37.5703V40.7578C10.7188 41.05 10.9578 41.2891 11.25 41.2891H23.4688C23.7609 41.2891 24 41.05 24 40.7578V37.5703C24 37.2781 23.7609 37.0391 23.4688 37.0391ZM10.7188 28.5391V31.7266C10.7188 32.0187 10.9578 32.2578 11.25 32.2578H36.75C37.0422 32.2578 37.2812 32.0187 37.2812 31.7266V28.5391C37.2812 28.2469 37.0422 28.0078 36.75 28.0078H11.25C10.9578 28.0078 10.7188 28.2469 10.7188 28.5391Z"
+                                            fill="#D5D5D5" />
+                                    </svg>
+                                    <p class="text-eb-secondary font-semibold" *ngIf="!data[item.prop].file">No File
+                                        Attached</p>
+                                    <select id="project" class="eb-select-primary mt-0">
+                                        <option selected disabled>Select Reviewer</option>
+                                        <option *ngFor="let project of projectOptions" [value]="project">{{project}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
